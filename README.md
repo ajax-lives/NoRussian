@@ -16,6 +16,13 @@ Feel free to make a code commit.
 
 All the contents of this repository should be used for authorized and/or educational purposes only. Any misuse of this repository will not be the responsibility of the author or of any other collaborator.
 
+### Notable Projects
+
+https://github.com/erkexzcx/stoppropaganda
+
+Runs headless on Linux servers - as well as in Docker, which is extremely easy to setup, for those who are already familiar.
+If you have any site recommendations for us, might be helpful to doubleback to them with an issue, or better yet, a pull request.
+
 ### Credits
 
 Forked from https://github.com/ajax-lives/NoRussian
