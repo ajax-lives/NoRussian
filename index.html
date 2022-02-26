@@ -192,7 +192,7 @@
         }
 
         async function flood(target) {
-            for (var i = 0; ; ++i) {
+            while(true) {
                 if (queue.length > CONCURRENCY_LIMIT) {
                     await queue.shift()
                 }
