@@ -5,8 +5,7 @@ Made to be user friendly and simple to use - as to maximize the amount of people
 
 Running the HTML locally on your device will run a DoS attack on Russian websites, through complete volunteering.
 
-
-###
+### Usage
 
 Disabling CORS is necessary to be able to get the most performance out of this script.
 See how [here](https://stackoverflow.com/a/58658101/1644554).
