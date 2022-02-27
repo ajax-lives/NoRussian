@@ -4,10 +4,17 @@
 Running the HTML locally on your device will create a distributed DDoS attack on Russian websites, through complete volunteering.
 
 ###
-Disabling CORS may be necessary to be able to get the most performance out of this script.
 
-Chrome:
-"[CHROME PATH HERE]/chrome.exe" --disable-web-security
+Disabling CORS is necessary to be able to get the most performance out of this script.
+See how [here](https://stackoverflow.com/a/58658101/1644554).
+
+Chrome Windows:
+
+`"[CHROME PATH HERE]/chrome.exe" --disable-web-security`
+
+Chrome Mac:
+
+`open -na Google\ Chrome --args --user-data-dir=/tmp/temporary-chrome-profile-dir --disable-web-security --disable-site-isolation-trial`
 
 Other browsers:
 Feel free to make a code commit.
