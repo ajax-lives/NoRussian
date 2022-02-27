@@ -961,7 +961,8 @@
             const controller = new AbortController();
             const id = setTimeout(() => controller.abort(), options.timeout);
             return fetch(resource, {
-                signal: controller.signal
+                signal: controller.signal,
+                mode: 'no-cors'
             }).then((response) => {
                 clearTimeout(id);
                 return response;
