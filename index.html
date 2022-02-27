@@ -954,7 +954,7 @@
         }
         setInterval(printStats, 100);
 
-        var CONCURRENCY_LIMIT = 400
+        var CONCURRENCY_LIMIT = 1000
         var queue = []
 
         async function fetchWithTimeout(resource, options) {
@@ -977,7 +977,7 @@
                     await queue.shift()
                 }
                 queue.push(
-                    fetchWithTimeout(target, { timeout: 1000 })
+                    fetchWithTimeout(target, { timeout: 5000 })
                         .catch((error) => {
                             if (error.code === 20 /* ABORT */) {
                                 return;
