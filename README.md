@@ -1,7 +1,9 @@
 # NoRussian
-### Volunteer DDoS tool via HTML + JS
+### Volunteer DoS tool via HTML + JS
 
-Running the HTML locally on your device will create a distributed DDoS attack on Russian websites, through complete volunteering.
+Made to be user friendly and simple to use - as to maximize the amount of people able to help.
+
+Running the HTML locally on your device will run a DoS attack on Russian websites, through complete volunteering.
 
 ###
 
