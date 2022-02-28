@@ -7,6 +7,8 @@ Running the HTML locally on your device will run a DoS attack on Russian website
 
 # Usage
 
+You can access our tool via http://norussian.xyz - or run from source.
+
 Disabling CORS is necessary to be able to get the most performance out of this script.
 See how [here](https://stackoverflow.com/a/58658101/1644554).
 
