@@ -1,13 +1,13 @@
 # NoRussian
 ### Volunteer DoS tool via HTML + JS
 
-Made to be user friendly and simple to use - as to maximize the amount of people able to help. (previously known as norussian.tk)
+Made to be user friendly and simple to use - as to maximize the amount of people able to help.
 
 Running the HTML locally on your device will run a DoS attack on Russian and Belarussian websites (gov, mil, banks, propaganda sites), through complete volunteering.
 
 # Usage
 
-You can access our tool via https://norussian.xyz - or run from source.
+You can access our tool via https://norussian.xyz - or run from source. (previously norussian.tk)
 
 ### Disclaimer / Warning
 
@@ -32,5 +32,8 @@ https://www.reddit.com/r/hacking/comments/t1a8is/simple_html_dos_script_for_russ
 
 https://www.reddit.com/r/UkraineWarVideoReport/comments/t3l1z4/for_educational_purposes/?utm_source=share&utm_medium=web2x&context=3
 
+
+
+## Slava Ukraini!
 
 ![fuck russia](https://pbs.twimg.com/media/FMoSgYVWYAQs9Au?format=jpg&name=medium)
