@@ -1,9 +1,9 @@
 # NoRussian
 ### Volunteer DoS tool via HTML + JS
 
-Made to be user friendly and simple to use - as to maximize the amount of people able to help.
+Made to be user friendly and simple to use - as to maximize the amount of people able to help. (previously known as norussian.tk)
 
-Running the HTML locally on your device will run a DoS attack on Russian websites, through complete volunteering.
+Running the HTML locally on your device will run a DoS attack on Russian and Belarussian websites (gov, mil, banks, propaganda sites), through complete volunteering.
 
 # Usage
 
@@ -25,6 +25,12 @@ If you have any site recommendations for us, might be helpful to doubleback to t
 Forked from https://github.com/ajax-lives/NoRussian
 
 Forked from https://stop-russian-desinformation.near.page/
+
+### References of us
+
+https://www.reddit.com/r/hacking/comments/t1a8is/simple_html_dos_script_for_russian_sites/
+
+https://www.reddit.com/r/UkraineWarVideoReport/comments/t3l1z4/for_educational_purposes/?utm_source=share&utm_medium=web2x&context=3
 
 
 ![fuck russia](https://pbs.twimg.com/media/FMoSgYVWYAQs9Au?format=jpg&name=medium)
