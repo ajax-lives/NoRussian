@@ -1,9 +1,9 @@
 # NoRussian
 ### Volunteer DoS tool via HTML + JS
 
-Made to be user friendly and simple to use - as to maximize the amount of people able to help.
+Made to be user friendly and simple to use - as to maximize the amount of people able to help. (previously known as norussian.tk)
 
-Running the HTML locally on your device will run a DoS attack on Russian websites, through complete volunteering.
+Running the HTML locally on your device will run a DoS attack on Russian and Belarussian websites (gov, mil, banks, propaganda sites), through complete volunteering.
 
 # Usage
 
