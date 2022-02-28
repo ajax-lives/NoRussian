@@ -11,24 +11,6 @@ Join us on Discord: https://discord.gg/ycUTsxYy
 
 You can access our tool via http://norussian.xyz - or run from source.
 
-Disabling CORS is necessary to be able to get the most performance out of this script.
-See how [here](https://stackoverflow.com/a/58658101/1644554).
-
-Chrome Windows:
-
-1. Clone the repository or download the ZIP archive from the upper right button: Code->Download ZIP to your local machine
-2. If you download the archive as zip, unzip it to any folder on your machine
-3. Open terminal (windows key and type cmd, to find Command Prompt) and ENTER
-4. You need to know what is the path to your chrome browser, by default it should be something like: `"C:\Program Files\Google\Chrome\Application\chrome.exe"`, if you don't know it, find Chrome icon on desktop, right click on it, select Properties and copy the path from target box
-5. in Command Prompt copy paste: `"[CHROME PATH HERE]/chrome.exe" --disable-web-security` (replace [CHROME PATH HERE] with the actual path from above)
-
-Chrome Mac:
-
-`open -na Google\ Chrome --args --user-data-dir=/tmp/temporary-chrome-profile-dir --disable-web-security --disable-site-isolation-trial`
-
-Other browsers:
-Feel free to make a code commit.
-
 ### Disclaimer / Warning
 
 All the contents of this repository should be used for authorized and/or educational purposes only. Any misuse of this repository will not be the responsibility of the author or of any other collaborator.
