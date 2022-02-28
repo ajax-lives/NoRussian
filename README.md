@@ -5,6 +5,8 @@ Made to be user friendly and simple to use - as to maximize the amount of people
 
 Running the HTML locally on your device will run a DoS attack on Russian websites, through complete volunteering.
 
+Join us on Discord: https://discord.gg/ycUTsxYy
+
 # Usage
 
 You can access our tool via http://norussian.xyz - or run from source.
