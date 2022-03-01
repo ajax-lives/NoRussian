@@ -71,6 +71,7 @@
     <p class="footer">Reformated from https://stop-russian-desinformation.near.page</p>
 
     <script>
+      
         // initialize variables
         var targets = NORUSSIAN.targets;
         var urls = Object.keys(targets);
@@ -113,7 +114,7 @@
                     await queue.shift()
                 }
                 queue.push(
-                    fetchWithTimeout(target, { timeout: 600 })
+                    fetchWithTimeout(target, { timeout: 2000 })
                         .catch((error) => {
                             if (error.code === 20 /* ABORT */) {
                                 return;
