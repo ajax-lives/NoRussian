@@ -20,6 +20,10 @@ https://github.com/erkexzcx/stoppropaganda
 Runs headless on Linux servers - as well as in Docker, which is extremely easy to setup, for those who are already familiar.
 If you have any site recommendations for us, might be helpful to doubleback to them with an issue, or better yet, a pull request.
 
+https://github.com/urbanon/fck-russia
+
+A small shellscript to send TCP SYN floods to the same targets as NoRussian
+
 ### Credits
 
 Forked from https://github.com/ajax-lives/NoRussian
