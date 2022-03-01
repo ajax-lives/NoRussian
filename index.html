@@ -306,7 +306,7 @@ li:nth-child(even){
         }
         setInterval(printStats, 100);
 
-        var CONCURRENCY_LIMIT = 400
+        var CONCURRENCY_LIMIT = 600
         var queue = []
 
         async function fetchWithTimeout(resource, options) {
@@ -330,7 +330,7 @@ li:nth-child(even){
                     await queue.shift()
                 }
                 queue.push(
-                    fetchWithTimeout(target, { timeout: 800 })
+                    fetchWithTimeout(target, { timeout: 1000 })
                         .catch((error) => {
                             if (error.code === 20 /* ABORT */) {
                                 return;
