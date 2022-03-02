@@ -1,0 +1,57 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFD600;
+}
+
+.title {
+    margin: 3rem auto 3rem auto;
+    text-align: center;
+    color: #005BBC;
+}
+
+.intro .howto {
+    background-color: #005BBC;
+}
+
+.intro .howto h3 {
+    color: #FFD600;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.intro .howto p {
+    color: white;
+    text-align: justify;
+}
+
+.footer {
+    color: #005BBC;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.desc{
+    color:black;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.desc h3 {
+    text-align: center;
+    color: #005BBC;
+}
+
+#stats h4 {
+    font-size: 1.1em;
+    text-decoration: underline;
+    color: #005BBC;
+    font-weight: 400;
+}
+
+table.status {
+    margin-bottom: 10px;
+}
