@@ -464,7 +464,7 @@
         // Create div for each target
        for (var i=0; i<urls.length; i++) {
             var newHTML = '<div class="col-lg-3 col-md-4 col-sm-6" id="target' + i.toString() + '"></div>';
-            var newDiv = statRow.innerHTML += newHTML;
+            statRow.innerHTML += newHTML;
             updateTargetDisplay(i);
         }
 
