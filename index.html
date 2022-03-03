@@ -149,10 +149,7 @@
 
     <p class="footer">Reformated from https://stop-russian-desinformation.near.page</p>
 
-    <script>
-        var totalrequests = 0;
-        var totalerrors = 0;
-        
+    <script>        
         // target list
         var urls = [
             'https://absolutbank.ru/',
@@ -371,6 +368,8 @@
         var CONCURRENCY_LIMIT = 200;
         var queue = [];
         var attack = false;
+        var totalrequests = 0;
+        var totalerrors = 0;
 
         function togglePause () {
             if (attack) {
