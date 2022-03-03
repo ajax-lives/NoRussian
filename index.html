@@ -395,10 +395,10 @@
         function togglePause () {
             if (attack) {
                 attack = false;
-                document.querySelector("div.desc .btn").innerHTML = "Resume";
+                document.querySelector("div.desc .btn").innerText = "Resume";
             } else {
                 attack = true;
-                document.querySelector("div.desc .btn").innerHTML = "Pause";
+                document.querySelector("div.desc .btn").innerText = "Pause";
                 for (var i=0; i<urls.length; i++) {
                     flood(urls[i], i);
                 }
@@ -451,21 +451,24 @@
         // Update data for target n
         function updateTargetDisplay(n) {
             var url = urls[n];
-            var target = targets[url];
-            var cell = document.querySelector("#target" + n.toString());
-            var display = "<h4>" + url + "</h4>";
-            display += "<table class='status'>"
-            display += "<tr><td>requests:</td><td>" + target["number_of_requests"] + "</td></tr>";
-            display += "</tr><td>errors:</td><td>" + target["number_of_errored_responses"] + "</td></tr>";
-            display += "</table>";
-            cell.innerHTML = display;
+            var {number_of_requests, number_of_errored_responses} = targets[url];
+            var requests_cell = document.querySelector(`#target${n} .requests`);
+            var errors_cell = document.querySelector(`#target${n} .errors`);
+            requests_cell.innerText = number_of_requests;
+            errors_cell.innerText = number_of_errored_responses;
         }
 
         // Create div for each target
-       for (var i=0; i<urls.length; i++) {
-            var newHTML = '<div class="col-lg-3 col-md-4 col-sm-6" id="target' + i.toString() + '"></div>';
-            var newDiv = statRow.innerHTML += newHTML;
-            updateTargetDisplay(i);
+        for (var i=0; i<urls.length; i++) {
+            statRow.innerHTML += `
+                <div class="col-lg-3 col-md-4 col-sm-6" id="target${i}">
+                    <h4>${urls[i]}</h4>
+                    <table class='status'>
+                        <tr><td>requests:</td><td class="requests">0</td></tr>
+                        </tr><td>errors:</td><td class="errors">0</td></tr>
+                    </table>
+                </div>
+            `;
         }
 
         // Start DOS attack
