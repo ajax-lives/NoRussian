@@ -50,6 +50,18 @@
       width: 100%;
     }
 
+    .settings {
+      margin: 2rem 2rem 0;
+    }
+
+    .settings h4, .settings p {
+      text-align: center;
+    }
+
+    .btn-settings {
+      width: 33%;
+    }
+
     .footer {
       margin-top: 2rem;
       text-align: center;
@@ -62,11 +74,11 @@
 
 <body>
 
-  <div class="modal" id="warning" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal" id="warning" tabindex="-1" role="dialog" aria-labelledby="warningLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
+          <h5 class="modal-title" id="warningLabel">Warning!</h5>
         </div>
         <div class="modal-body">
           <p>The action of DoSing or participating in DDoS is still illegal. Click on continue if you wish to support
@@ -78,7 +90,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" onclick="window.location.href='https://www.google.com'">Leave</button>
-          <button type="button" class="btn btn-primary" data-dismiss="exampleModalLabel" onclick="togglePause(); myModal.toggle();">Continue</button>
+          <button type="button" class="btn btn-primary" data-dismiss="warningLabel" onclick="togglePause(); warningPopup.toggle()">Continue</button>
         </div>
       </div>
     </div>
@@ -126,7 +138,7 @@
       <p class="desc">Below are the stats of your session (URLs and requests that were sent from your browser)<br>
         Sites with the "Failed to fetch" error message are dropping packets due to heavy load, which is the goal!<br>
         A high number of errored responses may be due to a DDoS protection service.</p>
-      <button id="pause-resume" type="button" class="btn btn-primary" onclick="togglePause();">Pause</button>
+      <button type="button" id="pause-resume" class="btn btn-primary" onclick="togglePause()">Pause</button>
     </div>
 
     <div>
@@ -142,6 +154,32 @@
         <tbody id="stats"></tbody>
         <tfoot id="stats-total"></tfoot>
       </table>
+    </div>
+
+    <div class="settings">
+      <div class="row">
+        <h4>Settings</h4>
+        <p><i>Change these only if you know what you're doing</i></p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 text-center">
+          <div><label for="update-interval"><abbr title="How often the stats will update (0 for constant, blank to stop)">Update Interval:</abbr></label></div>
+          <div><input type="number" id="update-interval" name="update-interval" min="0" placeholder="milliseconds" step="100" value="1000"></div>
+        </div>
+        <div class="col-lg-4 col-sm-12 text-center">
+          <div><label for="concurrency-limit"><abbr title="How many requests can be sent at the same time (blank ignored)">Concurrency Limit:</abbr></label></div>
+          <div><input type="number" id="concurrency-limit" name="concurrency-limit" min="0" placeholder="limit" step="10" value="1000"></div>
+        </div>
+        <div class="col-lg-4 col-sm-12 text-center">
+          <div><label for="fetch-timeout"><abbr title="How long before a request will timeout (0 for instant, blank ignored)">Fetch Timeout:</abbr></label></div>
+          <div><input type="number" id="fetch-timeout" name="fetch-timeout" min="0" placeholder="milliseconds" step="100" value="2000"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center" style="margin: 1rem">
+          <button type="button" id="update-settings" class="btn btn-primary btn-settings" onclick="updateSettings()">Update</button>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -420,8 +458,7 @@
     var concurrency_limit = 1000
     var fetch_timeout = 2000
 
-    // Warning popup
-    var myModal = new bootstrap.Modal(document.getElementById('warning'), {}); myModal.toggle()
+    var warningPopup = new bootstrap.Modal(document.getElementById('warning'), {}); warningPopup.toggle()
     window.onload = togglePause()
 
     function togglePause() {
@@ -435,11 +472,11 @@
       }
     }
 
-    // Update stats
-    setInterval(() => {
+    var updateStats = setInterval(updateTable, update_interval)
+    function updateTable() {
       document.getElementById('stats').innerHTML = Object.entries(targetStats).map(([target, { number_of_requests, number_of_errored_responses, error_message }]) => `<tr><td>${target}</td><td>${number_of_requests}</td><td>${number_of_errored_responses}</td><td>${error_message}</td></tr>`).join('')
       document.getElementById('stats-total').innerHTML = `<tr><td style="font-weight:bold">Total Stats:</td><td>${total_requests}</td><td>${total_errors}</td><td></td></tr>`
-    }, update_interval)
+    }
 
     async function flood(target) {
       while (attack) {
@@ -481,6 +518,16 @@
         clearTimeout(id)
         throw error
       })
+    }
+
+    function updateSettings() {
+      let i = document.getElementById('update-interval').value
+      let j = document.getElementById('concurrency-limit').value
+      let k = document.getElementById('fetch-timeout').value
+      clearInterval(updateStats)
+      if (i) { updateStats = setInterval(updateTable, i) }
+      if (j) { concurrency_limit = j }
+      if (k) { fetch_timeout = k }
     }
 
   </script>
