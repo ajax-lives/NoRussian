@@ -50,6 +50,11 @@
       width: 100%;
     }
 
+    .url {
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
     .settings {
       margin: 2rem 2rem 0;
     }
@@ -89,7 +94,7 @@
             сайтів.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" onclick="window.location.href='https://www.google.com'">Leave</button>
+          <button type="button" class="btn btn-secondary" onclick="window.location.href='https://www.google.com/'">Leave</button>
           <button type="button" class="btn btn-primary" data-dismiss="warningLabel" onclick="togglePause(); warningPopup.toggle()">Continue</button>
         </div>
       </div>
@@ -186,7 +191,7 @@
 
   <p class="footer">Reformatted from: <a href="https://stop-russian-desinformation.near.page">https://stop-russian-desinformation.near.page</a></p>
 
-  <!-- VISIBLE CONTENT END -->
+  <!-- END VISIBLE CONTENT -->
 
   <script>
     var targetList = [
@@ -474,7 +479,7 @@
 
     var updateStats = setInterval(updateTable, update_interval)
     function updateTable() {
-      document.getElementById('stats').innerHTML = Object.entries(targetStats).map(([target, { number_of_requests, number_of_errored_responses, error_message }]) => `<tr><td>${target}</td><td>${number_of_requests}</td><td>${number_of_errored_responses}</td><td>${error_message}</td></tr>`).join('')
+      document.getElementById('stats').innerHTML = Object.entries(targetStats).map(([target, { number_of_requests, number_of_errored_responses, error_message }]) => `<tr><td class="url">${target}</td><td>${number_of_requests}</td><td>${number_of_errored_responses}</td><td>${error_message}</td></tr>`).join('')
       document.getElementById('stats-total').innerHTML = `<tr><td style="font-weight:bold">Total Stats:</td><td>${total_requests}</td><td>${total_errors}</td><td></td></tr>`
     }
 
