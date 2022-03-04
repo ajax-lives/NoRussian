@@ -476,7 +476,7 @@
         //first load chart
         var myPiechart=new Piechart({canvas:myCanvas,data:{Requests:1,Errors:1},colors:["#bada55","#ff6666"],doughnutHoleSize:.6});
         //update chart
-        function updateChart(){totalerrors++,ctx.clearRect(0,0,200,200),new Piechart({canvas:myCanvas,data:{Requests:totalrequests,Errors:totalerrors},colors:["#bada55","#ff6666"],doughnutHoleSize:.6}).draw()}
+        function updateChart(){ctx.clearRect(0,0,200,200),new Piechart({canvas:myCanvas,data:{Requests:totalrequests,Errors:totalerrors},colors:["#bada55","#ff6666"],doughnutHoleSize:.6}).draw()}
         setInterval(updateChart, 500);
         window.onload = myPiechart.draw(); 
     </script>
