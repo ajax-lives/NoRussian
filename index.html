@@ -397,6 +397,10 @@
             });
         }
 
+        async function sleep(ms) {
+            return new Promise(r => setTimeout(r, ms));
+        }         
+
         async function flood(n) {
             const url = urls[n];
             const target = targets[url];
@@ -423,6 +427,8 @@
                         })
                         .finally(() => updateTargetDisplay(n))
                 );
+
+                await sleep(1);
             }
         }
 
