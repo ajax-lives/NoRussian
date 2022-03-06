@@ -384,12 +384,13 @@
         var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {})
         myModal.toggle();
 
-        async function fetchWithTimeout(resource, options) {
+        async function fetchWithTimeout(resource, timeout) {
             const controller = new AbortController();
-            const id = setTimeout(() => controller.abort(), options.timeout);
+            const id = setTimeout(() => controller.abort(), timeout);
             return fetch(resource, {
                 signal: controller.signal,
-                mode: 'no-cors'
+                mode: 'no-cors',
+                cache: 'no-store'
             }).then((response) => {
                 clearTimeout(id);
                 return response;
@@ -408,7 +409,7 @@
                     await queue.shift();
                 }
                 queue.push(
-                    fetchWithTimeout(url, { timeout: 2000 })
+                    fetchWithTimeout(target, 2000)
                         .catch((error) => {
                             if (error.code === 20 /* ABORT */) {
                                 return;
