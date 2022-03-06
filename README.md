@@ -7,7 +7,7 @@ Running the HTML locally on your device will run a DoS attack on Russian and Bel
 
 # Usage
 
-You can access our tool via https://norussian.xyz - or run from source. (previously norussian.tk)
+Download as ZIP, and open index.html with your browser.
 
 ### Disclaimer / Warning
 
