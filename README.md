@@ -7,9 +7,7 @@ Running the HTML locally on your device will run a DoS attack on Russian and Bel
 
 # Usage
 
-Can be used via opening https://ajax-lives.github.io/NoRussian/
-
-Or run from source:
+Run from source:
 Download as ZIP, and open index.html with your browser.
 
 ### Disclaimer / Warning
