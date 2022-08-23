@@ -1,4 +1,8 @@
 # NoRussian
+###
+Project has been archived as there are far superior tools available since this one's creation, thank you for the stars, pull requests, and kind words!
+<3
+
 ### Volunteer DoS tool via HTML + JS
 
 Made to be user friendly and simple to use - as to maximize the amount of people able to help.
