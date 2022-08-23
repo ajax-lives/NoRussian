@@ -1,7 +1,5 @@
 # NoRussian
-###
-Project has been archived as there are far superior tools available since this one's creation, thank you for the stars, pull requests, and kind words!
-<3
+### Project has been archived as there are far superior tools available since this one's creation, thank you for the stars, pull requests, and kind words! <3
 
 ### Volunteer DoS tool via HTML + JS
 
